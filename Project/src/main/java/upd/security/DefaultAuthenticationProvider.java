@@ -1,7 +1,7 @@
 package upd.security;
 
 import upd.security.model.AuthenticationToken;
-import upd.security.model.UserDetails;
+import upd.security.model.PersonDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,15 +35,15 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
             LOG.debug("Authenticating user {}", username);
         }
 
-        final UserDetails userDetails = (UserDetails) userDetailsService.loadUserByUsername(username);
+        final PersonDetails personDetails = (PersonDetails) userDetailsService.loadUserByUsername(username);
         final String password = (String) authentication.getCredentials();
-        if (!passwordEncoder.matches(password, userDetails.getPassword())) {
+        if (!passwordEncoder.matches(password, personDetails.getPassword())) {
             throw new BadCredentialsException("Provided credentials don't match.");
         }
-        userDetails.eraseCredentials(); // Don't pass credentials around in the user details object
-        final AuthenticationToken token = new AuthenticationToken(userDetails.getAuthorities(), userDetails);
+        personDetails.eraseCredentials(); // Don't pass credentials around in the user details object
+        final AuthenticationToken token = new AuthenticationToken(personDetails.getAuthorities(), personDetails);
         token.setAuthenticated(true);
-        token.setDetails(userDetails);
+        token.setDetails(personDetails);
 
         final SecurityContext context = new SecurityContextImpl();
         context.setAuthentication(token);

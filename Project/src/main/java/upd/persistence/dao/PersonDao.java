@@ -13,7 +13,7 @@ public class PersonDao extends BaseDao<Person> {
     }
 
     @Transactional(readOnly = true)
-    public Person findByUsername(String email) {
+    public Person findByEmail(String email) {
         if (email.equals("")) {
             return null;
         }

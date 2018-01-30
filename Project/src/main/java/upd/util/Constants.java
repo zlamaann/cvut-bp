@@ -21,6 +21,8 @@ public final class Constants {
      */
     public static final long MAX_UPLOAD_REQUEST_SIZE = 20 * 1024 * 1024;
 
+    public static final String INDEX_FILE_LOCATION = "../../index.html";
+
     /**
      * Size threshold after which files will be written to disk.
      */

@@ -2,7 +2,7 @@ package upd.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import upd.security.model.LoginStatus;
-import upd.security.model.UserDetails;
+import upd.security.model.PersonDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +42,7 @@ public class AuthenticationSuccess implements AuthenticationSuccessHandler, Logo
         if (authentication == null) {
             return "";
         }
-        return ((UserDetails) authentication.getPrincipal()).getUsername();
+        return ((PersonDetails) authentication.getPrincipal()).getUsername();
     }
 
     @Override

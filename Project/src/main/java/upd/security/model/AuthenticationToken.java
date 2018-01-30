@@ -8,22 +8,22 @@ import java.util.Collection;
 
 public class AuthenticationToken extends AbstractAuthenticationToken implements Principal {
 
-    private UserDetails userDetails;
+    private PersonDetails personDetails;
 
-    public AuthenticationToken(Collection<? extends GrantedAuthority> authorities, UserDetails userDetails) {
+    public AuthenticationToken(Collection<? extends GrantedAuthority> authorities, PersonDetails personDetails) {
         super(authorities);
-        this.userDetails = userDetails;
+        this.personDetails = personDetails;
         super.setAuthenticated(true);
-        super.setDetails(userDetails);
+        super.setDetails(personDetails);
     }
 
     @Override
     public Object getCredentials() {
-        return userDetails.getPassword();
+        return personDetails.getPassword();
     }
 
     @Override
     public Object getPrincipal() {
-        return userDetails;
+        return personDetails;
     }
 }

@@ -1,6 +1,5 @@
 package upd.model;
 
-import org.springframework.security.access.method.P;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
@@ -112,7 +111,7 @@ public class Person implements Serializable {
         this.surname = surname;
     }
 
-    public String getUsername() {
+    public String getEmail() {
         return email;
     }
 
