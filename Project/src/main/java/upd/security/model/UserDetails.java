@@ -9,7 +9,21 @@ import java.util.*;
 
 public class UserDetails implements org.springframework.security.core.userdetails.UserDetails {
 
-    private static final String DEFAULT_ROLE = "ROLE_USER";
+    private static final String OFFICE_ROLE = "OFFICE";
+
+    private static final String ACTOR_ROLE = "ACTOR";
+
+    private static final String MUSICIAN_ROLE = "MUSICIAN";
+
+    private static final String USHERETTE_ROLE = "USHERETTE";
+
+    private static final String COSTUMIER_ROLE = "COSTUMIER";
+
+    private static final String LIGHTING_ROLE = "LIGHTING";
+
+    private static final String SOUND_ROLE = "SOUND";
+
+    private static final String TECHNICIAN_ROLE = "TECHNICIAN";
 
     private static final String ADMIN_ROLE = "ROLE_ADMIN";
 
@@ -21,10 +35,24 @@ public class UserDetails implements org.springframework.security.core.userdetail
         Objects.requireNonNull(person);
         this.person = person;
         this.authorities = new HashSet<>();
-        if (person.getRole().equals(PersonType.USER_ROLE)) {
-            addDefaultRole();
-        } else if (person.getRole().equals(PersonType.ADMIN_ROLE)) {
+        if (person.getRole().equals(PersonType.OFFICE)) {
+            addOfficeRole();
+        } else if (person.getRole().equals(PersonType.ADMIN)) {
             addAdminRole();
+        } else if (person.getRole().equals(PersonType.ACTOR)) {
+            addActorRole();
+        } else if (person.getRole().equals(PersonType.MUSICIAN)) {
+            addMusicianRole();
+        } else if (person.getRole().equals(PersonType.USHERETTE)) {
+            addUsheretteRole();
+        } else if (person.getRole().equals(PersonType.COSTUMIER)) {
+            addCostumierRole();
+        } else if (person.getRole().equals(PersonType.LIGHTING)) {
+            addLightingRole();
+        } else if (person.getRole().equals(PersonType.SOUND)) {
+            addSoundRole();
+        } else if (person.getRole().equals(PersonType.TECHNICIAN)) {
+            addTechnicianRole();
         }
     }
 
@@ -33,16 +61,44 @@ public class UserDetails implements org.springframework.security.core.userdetail
         Objects.requireNonNull(authorities);
         this.person = person;
         this.authorities = new HashSet<>();
-        addDefaultRole();
+        addOfficeRole();
         this.authorities.addAll(authorities);
     }
 
-    private void addDefaultRole() {
-        authorities.add(new SimpleGrantedAuthority(DEFAULT_ROLE));
+    private void addOfficeRole() {
+        authorities.add(new SimpleGrantedAuthority(OFFICE_ROLE));
     }
 
     private void addAdminRole() {
         authorities.add(new SimpleGrantedAuthority(ADMIN_ROLE));
+    }
+
+    private void addActorRole() {
+        authorities.add(new SimpleGrantedAuthority(ACTOR_ROLE));
+    }
+
+    private void addMusicianRole() {
+        authorities.add(new SimpleGrantedAuthority(MUSICIAN_ROLE));
+    }
+
+    private void addUsheretteRole() {
+        authorities.add(new SimpleGrantedAuthority(USHERETTE_ROLE));
+    }
+
+    private void addCostumierRole() {
+        authorities.add(new SimpleGrantedAuthority(COSTUMIER_ROLE));
+    }
+
+    private void addLightingRole() {
+        authorities.add(new SimpleGrantedAuthority(LIGHTING_ROLE));
+    }
+
+    private void addSoundRole() {
+        authorities.add(new SimpleGrantedAuthority(SOUND_ROLE));
+    }
+
+    private void addTechnicianRole() {
+        authorities.add(new SimpleGrantedAuthority(TECHNICIAN_ROLE));
     }
 
     public void eraseCredentials() {
