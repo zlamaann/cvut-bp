@@ -1,5 +1,6 @@
 package upd.security.model;
 
+import upd.model.Performance;
 import upd.model.PersonType;
 import upd.model.Person;
 import org.springframework.security.core.GrantedAuthority;
@@ -35,25 +36,29 @@ public class PersonDetails implements org.springframework.security.core.userdeta
         Objects.requireNonNull(person);
         this.person = person;
         this.authorities = new HashSet<>();
-        if (person.getRole().equals(PersonType.OFFICE)) {
-            addOfficeRole();
-        } else if (person.getRole().equals(PersonType.ADMIN)) {
-            addAdminRole();
-        } else if (person.getRole().equals(PersonType.ACTOR)) {
-            addActorRole();
-        } else if (person.getRole().equals(PersonType.MUSICIAN)) {
-            addMusicianRole();
-        } else if (person.getRole().equals(PersonType.USHERETTE)) {
-            addUsheretteRole();
-        } else if (person.getRole().equals(PersonType.COSTUMIER)) {
-            addCostumierRole();
-        } else if (person.getRole().equals(PersonType.LIGHTING)) {
-            addLightingRole();
-        } else if (person.getRole().equals(PersonType.SOUND)) {
-            addSoundRole();
-        } else if (person.getRole().equals(PersonType.TECHNICIAN)) {
-            addTechnicianRole();
+        List<PersonType> roles = person.getRoles();
+        for (PersonType role: roles) {
+            if (role.equals(PersonType.OFFICE)) {
+                addOfficeRole();
+            } else if (role.equals(PersonType.ADMIN)) {
+                addAdminRole();
+            } else if (role.equals(PersonType.ACTOR)) {
+                addActorRole();
+            } else if (role.equals(PersonType.MUSICIAN)) {
+                addMusicianRole();
+            } else if (role.equals(PersonType.USHERETTE)) {
+                addUsheretteRole();
+            } else if (role.equals(PersonType.COSTUMIER)) {
+                addCostumierRole();
+            } else if (role.equals(PersonType.LIGHTING)) {
+                addLightingRole();
+            } else if (role.equals(PersonType.SOUND)) {
+                addSoundRole();
+            } else if (role.equals(PersonType.TECHNICIAN)) {
+                addTechnicianRole();
+            }
         }
+
     }
 
     public PersonDetails(Person person, Collection<GrantedAuthority> authorities) {

@@ -27,7 +27,7 @@ public class Performance implements Serializable {
     private String description;
 
     @OneToMany(
-            mappedBy = "performane",
+            mappedBy = "performance",
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )

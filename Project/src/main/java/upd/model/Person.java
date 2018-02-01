@@ -1,8 +1,11 @@
 package upd.model;
 
+import org.eclipse.persistence.annotations.*;
+import org.eclipse.persistence.annotations.Convert;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.persistence.*;
+import javax.persistence.CollectionTable;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +14,22 @@ import java.util.List;
 @Table(name = "PERSON")
 @NamedQueries(
         {@NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE p.email=:email")})
+@ObjectTypeConverter(
+        name = "roleEnumFromStringConversion",
+        objectType = PersonType.class,
+        dataType = String.class,
+        conversionValues = {
+                @ConversionValue(objectValue = "ADMIN", dataValue = "ADMIN"),
+                @ConversionValue(objectValue = "OFFICE", dataValue = "OFFICE"),
+                @ConversionValue(objectValue = "ACTOR", dataValue = "ACTOR"),
+                @ConversionValue(objectValue = "MUSICIAN", dataValue = "MUSICIAN"),
+                @ConversionValue(objectValue = "USHERETTE", dataValue = "USHERETTE"),
+                @ConversionValue(objectValue = "COSTUMIER", dataValue = "COSTUMIER"),
+                @ConversionValue(objectValue = "TECHNICIAN", dataValue = "TECHNICIAN"),
+                @ConversionValue(objectValue = "LIGHTING", dataValue = "LIGHTING"),
+                @ConversionValue(objectValue = "SOUND", dataValue = "SOUND")
+        }
+)
 public class Person implements Serializable {
 
     public Person() {
@@ -29,8 +48,17 @@ public class Person implements Serializable {
     @Column(name="ID_PERSON")
     private Integer id;
 
-    @Enumerated(EnumType.STRING)
     private List<PersonType> roles;
+
+    @ElementCollection(targetClass = PersonType.class)
+    @CollectionTable(
+            name="PERSON_TYPE",
+            joinColumns=@JoinColumn(name="NAME")
+    )
+    @Convert("roleEnumFromStringConversion")
+    public List<PersonType> getRoles() {
+        return roles;
+    }
 
     @Column(nullable = false, name = "NAME")
     private String name;
@@ -146,9 +174,6 @@ public class Person implements Serializable {
         this.phoneNumber = phoneNumber;
     }
 
-    public List<PersonType> getRoles() {
-        return roles;
-    }
 
     public Address getAddress() {
         return address;
