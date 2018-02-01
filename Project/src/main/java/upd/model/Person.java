@@ -5,7 +5,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -31,7 +30,7 @@ public class Person implements Serializable {
     private Integer id;
 
     @Enumerated(EnumType.STRING)
-    private Collection<PersonType> roles;
+    private List<PersonType> roles;
 
     @Column(nullable = false, name = "NAME")
     private String name;
@@ -56,13 +55,13 @@ public class Person implements Serializable {
     @JoinTable(name="MESSAGE_PERSON",
     joinColumns = @JoinColumn(name = "ID_PERSON")
     )
-    private Collection<Message> messages;
+    private List<Message> messages = new ArrayList<>();
 
     @ManyToMany
     @JoinTable(name="SHIFT_PERSON",
                     joinColumns=@JoinColumn(name="ID_PERSON"),
                     inverseJoinColumns=@JoinColumn(name="ID_SHIFT"))
-    private Collection<Shift> shifts;
+    private List<Shift> shifts = new ArrayList<>();
 
     @OneToMany(
             mappedBy = "person",
@@ -79,11 +78,7 @@ public class Person implements Serializable {
         this.id = id;
     }
 
-    public Collection<PersonType> getRole() {
-        return roles;
-    }
-
-    public void setRole(Collection<PersonType> role) {
+    public void setRole(List<PersonType> role) {
         this.roles = role;
     }
 
@@ -149,6 +144,50 @@ public class Person implements Serializable {
 
     public void setPhoneNumber(Integer phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public List<PersonType> getRoles() {
+        return roles;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public void addMesage(Message message) {
+        messages.add(message);
+    }
+
+    public void removeMessage(Message message) {
+        messages.remove(message);
+    }
+
+    public List<Shift> getShifts() {
+        return shifts;
+    }
+
+    public void addShift(Shift shift) {
+        shifts.add(shift);
+    }
+
+    public void removeShift(Shift shift) {
+        shifts.remove(shift);
+    }
+
+    public List<PerformancePerson> getPerformances() {
+        return performances;
+    }
+
+    public void addPerformanceRole(PerformancePerson role) {
+        performances.add(role);
+    }
+
+    public void removePerformanceRole(PerformancePerson role) {
+        performances.remove(role);
     }
 }
 
