@@ -13,7 +13,8 @@ import java.util.List;
 @Entity
 @Table(name = "PERSON")
 @NamedQueries(
-        {@NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE p.email=:email")})
+        {@NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE p.email=:email")}
+)
 @ObjectTypeConverter(
         name = "roleEnumFromStringConversion",
         objectType = PersonType.class,

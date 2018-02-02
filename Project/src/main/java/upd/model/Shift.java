@@ -6,6 +6,13 @@ import java.util.Date;
 
 @Entity
 @Table(name = "SHIFT")
+@DiscriminatorValue("SHIFT")
+@NamedQueries(
+        {
+                @NamedQuery(name = "Shift.findByDate", query = "SELECT s, p FROM Shift s JOIN Performance p ON s.performance = p WHERE s.timeFrom BETWEEN :from AND :to"),
+                @NamedQuery(name = "Person.findShiftByPersonId", query = "SELECT s FROM Person p JOIN p.shifts s WHERE p.id=:id")
+
+        })
 public class Shift implements Serializable {
 
     @Id
@@ -13,12 +20,12 @@ public class Shift implements Serializable {
     @Column(name="ID_SHIFT")
     private Integer id;
 
-    @Temporal(TemporalType.DATE)
     @Column(nullable = false, name = "TIME_FROM")
+    @Temporal(TemporalType.DATE)
     private Date timeFrom;
 
-    @Temporal(TemporalType.DATE)
     @Column(nullable = false, name = "TIME_TO")
+    @Temporal(TemporalType.DATE)
     private Date timeTo;
 
     @Column(nullable = false, name = "NOTES")

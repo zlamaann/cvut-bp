@@ -4,6 +4,9 @@ import upd.model.Person;
 import javax.persistence.NoResultException;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import upd.model.Shift;
+
+import java.util.List;
 
 @Repository
 public class PersonDao extends BaseDao<Person> {
@@ -24,4 +27,6 @@ public class PersonDao extends BaseDao<Person> {
             return null;
         }
     }
+
+
 }
