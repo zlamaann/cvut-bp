@@ -28,5 +28,17 @@ public class PersonDao extends BaseDao<Person> {
         }
     }
 
+    @Transactional(readOnly = true)
+    public List<Person> findByName(String name) {
+        if (name.equals("")) {
+            return null;
+        }
+        try {
+            return em.createNamedQuery("Person.findByName", Person.class).setParameter("name", name)
+                    .getResultList();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
 
 }
