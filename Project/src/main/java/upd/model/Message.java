@@ -23,6 +23,9 @@ public class Message implements Serializable {
     @Column(nullable = false, name = "DESCRIPTION")
     private String description;
 
+    public Message() {
+    }
+
     public Message(Date date, String subject, String description) {
         this.date = date;
         this.subject = subject;

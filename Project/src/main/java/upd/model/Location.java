@@ -18,6 +18,9 @@ public class Location implements Serializable {
     @Column(nullable = false, name = "DESCRIPTION")
     private String description;
 
+    public Location() {
+    }
+
     public Location(String name, String description) {
         this.name = name;
         this.description = description;

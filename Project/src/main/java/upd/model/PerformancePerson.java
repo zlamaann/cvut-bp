@@ -5,7 +5,7 @@ import sun.misc.Perf;
 import javax.persistence.*;
 import java.util.Objects;
 
-@Entity(name = "PerformancePerson")
+@Entity
 @Table(name = "PERFORMANCE_PERSON")
 public class PerformancePerson {
 

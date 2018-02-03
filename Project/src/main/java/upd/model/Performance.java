@@ -33,6 +33,9 @@ public class Performance implements Serializable {
     )
     private List<PerformancePerson> roles = new ArrayList<>();
 
+    public Performance() {
+    }
+
     public Performance(String name, int length, String isRegular, String description) {
         this.name = name;
         this.length = length;

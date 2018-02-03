@@ -42,6 +42,9 @@ public class Shift implements Serializable {
     @Enumerated(EnumType.STRING)
     private ShiftType type;
 
+    public Shift() {
+    }
+
     public Shift(Date timeFrom, Date timeTo, String notes, ShiftType type) {
         this.timeFrom = timeFrom;
         this.timeTo = timeTo;

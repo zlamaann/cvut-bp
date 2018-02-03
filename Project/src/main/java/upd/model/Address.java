@@ -22,6 +22,9 @@ public class Address implements Serializable {
     @JoinColumn(name="ID_CITY")
     private City city ;
 
+    public Address() {
+    }
+
     public Address(String streetName, String streetNumber, City city) {
         this.streetName = streetName;
         this.streetNumber = streetNumber;

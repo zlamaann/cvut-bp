@@ -13,22 +13,9 @@ import java.util.List;
 @Entity
 @Table(name = "PERSON")
 @NamedQueries(
-        {@NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE p.email=:email")}
-)
-@ObjectTypeConverter(
-        name = "roleEnumFromStringConversion",
-        objectType = PersonType.class,
-        dataType = String.class,
-        conversionValues = {
-                @ConversionValue(objectValue = "ADMIN", dataValue = "ADMIN"),
-                @ConversionValue(objectValue = "OFFICE", dataValue = "OFFICE"),
-                @ConversionValue(objectValue = "ACTOR", dataValue = "ACTOR"),
-                @ConversionValue(objectValue = "MUSICIAN", dataValue = "MUSICIAN"),
-                @ConversionValue(objectValue = "USHERETTE", dataValue = "USHERETTE"),
-                @ConversionValue(objectValue = "COSTUMIER", dataValue = "COSTUMIER"),
-                @ConversionValue(objectValue = "TECHNICIAN", dataValue = "TECHNICIAN"),
-                @ConversionValue(objectValue = "LIGHTING", dataValue = "LIGHTING"),
-                @ConversionValue(objectValue = "SOUND", dataValue = "SOUND")
+        {
+                @NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE p.email=:email"),
+                @NamedQuery(name = "Person.findByName", query = "SELECT p, pt.name FROM Person p JOIN p.roles pt WHERE p.name=:name OR p.surname=:name")
         }
 )
 public class Person implements Serializable {
@@ -49,22 +36,22 @@ public class Person implements Serializable {
     @Column(name="ID_PERSON")
     private Integer id;
 
+    @ManyToMany
+    @JoinTable
+            (name="PERSON_TYPE_PERSON",
+                    joinColumns=@JoinColumn(name="ID_PERSON"),
+                    inverseJoinColumns=@JoinColumn(name="ID_PERSON_TYPE"))
     private List<PersonType> roles;
 
-    @ElementCollection(targetClass = PersonType.class)
-    @CollectionTable(
-            name="PERSON_TYPE",
-            joinColumns=@JoinColumn(name="NAME")
-    )
-    @Convert("roleEnumFromStringConversion")
+
     public List<PersonType> getRoles() {
         return roles;
     }
 
-    @Column(nullable = false, name = "NAME")
+    @Column(nullable = false, name = "FIRST_NAME")
     private String name;
 
-    @Column(nullable = false, name = "SURNAME")
+    @Column(nullable = false, name = "LAST_NAME")
     private String surname;
 
     @Column(nullable = false, name = "PASSWORD")
@@ -81,9 +68,10 @@ public class Person implements Serializable {
     private Address address;
 
     @OneToMany
-    @JoinTable(name="MESSAGE_PERSON",
-    joinColumns = @JoinColumn(name = "ID_PERSON")
-    )
+    @JoinTable
+            (name="MESSAGE_PERSON",
+                    joinColumns=@JoinColumn(name="ID_PERSON"),
+                    inverseJoinColumns=@JoinColumn(name="ID_MESSAGE"))
     private List<Message> messages = new ArrayList<>();
 
     @ManyToMany
@@ -204,7 +192,7 @@ public class Person implements Serializable {
         shifts.remove(shift);
     }
 
-    public List<PerformancePerson> getPerformances() {
+    /*public List<PerformancePerson> getPerformances() {
         return performances;
     }
 
@@ -214,6 +202,6 @@ public class Person implements Serializable {
 
     public void removePerformanceRole(PerformancePerson role) {
         performances.remove(role);
-    }
+    }*/
 }
 
