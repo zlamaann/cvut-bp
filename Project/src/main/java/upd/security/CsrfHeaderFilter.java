@@ -20,7 +20,7 @@ public class CsrfHeaderFilter extends OncePerRequestFilter {
         httpServletRequest.setCharacterEncoding("UTF-8");
         httpServletResponse.setContentType("text/html; charset=UTF-8");
         httpServletResponse.setCharacterEncoding("UTF-8");
-        
+
         CsrfToken csrfToken = (CsrfToken) httpServletRequest.getAttribute(CsrfToken.class.getName());
         if (csrfToken != null) {
             Cookie cookie = WebUtils.getCookie(httpServletRequest, SecurityConstants.CSRF_COOKIE_NAME);
