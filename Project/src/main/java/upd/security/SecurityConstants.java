@@ -12,7 +12,7 @@ public class SecurityConstants {
 
     public static final String CSRF_COOKIE_NAME = "CSRF-TOKEN";
 
-    public static final String USERNAME_PARAM = "username";
+    public static final String USERNAME_PARAM = "email";
 
     public static final String PASSWORD_PARAM = "password";
 

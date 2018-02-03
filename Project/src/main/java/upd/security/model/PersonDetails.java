@@ -2,6 +2,7 @@ package upd.security.model;
 
 import upd.model.Performance;
 import upd.model.PersonType;
+import upd.model.PersonTypeEnum;
 import upd.model.Person;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -37,24 +38,25 @@ public class PersonDetails implements org.springframework.security.core.userdeta
         this.person = person;
         this.authorities = new HashSet<>();
         List<PersonType> roles = person.getRoles();
-        for (PersonType role: roles) {
-            if (role.equals(PersonType.OFFICE)) {
+        for (PersonType pt: roles) {
+            String role = pt.getName();
+            if (role.equals(PersonTypeEnum.OFFICE.name())) {
                 addOfficeRole();
-            } else if (role.equals(PersonType.ADMIN)) {
+            } else if (role.equals(PersonTypeEnum.ADMIN.name())) {
                 addAdminRole();
-            } else if (role.equals(PersonType.ACTOR)) {
+            } else if (role.equals(PersonTypeEnum.ACTOR.name())) {
                 addActorRole();
-            } else if (role.equals(PersonType.MUSICIAN)) {
+            } else if (role.equals(PersonTypeEnum.MUSICIAN.name())) {
                 addMusicianRole();
-            } else if (role.equals(PersonType.USHERETTE)) {
+            } else if (role.equals(PersonTypeEnum.USHERETTE.name())) {
                 addUsheretteRole();
-            } else if (role.equals(PersonType.COSTUMIER)) {
+            } else if (role.equals(PersonTypeEnum.COSTUMIER.name())) {
                 addCostumierRole();
-            } else if (role.equals(PersonType.LIGHTING)) {
+            } else if (role.equals(PersonTypeEnum.LIGHTING.name())) {
                 addLightingRole();
-            } else if (role.equals(PersonType.SOUND)) {
+            } else if (role.equals(PersonTypeEnum.SOUND.name())) {
                 addSoundRole();
-            } else if (role.equals(PersonType.TECHNICIAN)) {
+            } else if (role.equals(PersonTypeEnum.TECHNICIAN.name())) {
                 addTechnicianRole();
             }
         }
