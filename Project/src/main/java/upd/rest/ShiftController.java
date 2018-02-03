@@ -34,21 +34,20 @@ public class ShiftController extends BaseController {
         return shifts;
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Shift> getTodayShifts() {
-        final List<Shift> shifts = shiftService.getTodayShifts();
-        return shifts;
-    }
-
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Shift> getWeekShifts() {
-        final List<Shift> shifts = shiftService.getWeekShifts();
-        return shifts;
-    }
-
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Shift> getMonthShifts() {
-        final List<Shift> shifts = shiftService.getMonthShifts();
+    @RequestMapping(method = RequestMethod.GET, value = "/{type}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Shift> getShifts(@PathVariable String type) {
+        List<Shift> shifts = null;
+        switch (type) {
+            case "today":
+                shifts = shiftService.getTodayShifts();
+                break;
+            case "week":
+                shifts = shiftService.getWeekShifts();
+                break;
+            case "month":
+                shifts = shiftService.getMonthShifts();
+                break;
+        }
         return shifts;
     }
 }
