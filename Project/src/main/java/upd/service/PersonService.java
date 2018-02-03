@@ -9,6 +9,8 @@ import upd.model.Person;
 import upd.persistence.dao.GenericDao;
 import upd.persistence.dao.PersonDao;
 
+import java.util.List;
+
 @Service
 public class PersonService extends BaseService<Person> {
     @Autowired
@@ -24,6 +26,10 @@ public class PersonService extends BaseService<Person> {
 
     public Person getByEmail(String email) {
         return personDao.findByEmail(email);
+    }
+
+    public List<Person> getByName(String name) {
+        return personDao.findByName(name);
     }
 
     public void persist(Person person) {

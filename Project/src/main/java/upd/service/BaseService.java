@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import upd.persistence.dao.GenericDao;
 
 import java.util.Collection;
+import java.util.List;
 
 public abstract class BaseService<T> {
 
@@ -12,7 +13,7 @@ public abstract class BaseService<T> {
 
     protected abstract GenericDao<T> getPrimaryDao();
 
-    public Collection<T> findAll() {
+    public List<T> findAll() {
         return getPrimaryDao().findAll();
     }
 
