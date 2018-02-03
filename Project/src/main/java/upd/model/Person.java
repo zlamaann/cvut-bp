@@ -14,8 +14,8 @@ import java.util.List;
 @Table(name = "PERSON")
 @NamedQueries(
         {
-                @NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE p.email=:email"),
-                @NamedQuery(name = "Person.findByName", query = "SELECT p, pt.name FROM Person p JOIN p.roles pt WHERE p.name=:name OR p.surname=:name")
+                @NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE LOWER(p.email) = LOWER(:email)"),
+                @NamedQuery(name = "Person.findByName", query = "SELECT p, pt.name FROM Person p JOIN p.roles pt WHERE LOWER(p.name) LIKE LOWER(:name) OR LOWER(p.surname) LIKE LOWER(:name)")
         }
 )
 public class Person implements Serializable {

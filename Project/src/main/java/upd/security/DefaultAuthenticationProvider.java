@@ -37,7 +37,7 @@ public class DefaultAuthenticationProvider implements AuthenticationProvider {
 
         final PersonDetails personDetails = (PersonDetails) userDetailsService.loadUserByUsername(username);
         final String password = (String) authentication.getCredentials();
-        if (!password.equals(personDetails.getPassword())) {
+        if (!passwordEncoder.matches(password,personDetails.getPassword())) {
             throw new BadCredentialsException("Provided credentials don't match.");
         }
         personDetails.eraseCredentials(); // Don't pass credentials around in the user details object
