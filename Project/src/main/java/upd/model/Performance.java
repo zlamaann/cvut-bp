@@ -1,9 +1,10 @@
 package upd.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "PERFORMANCE")
@@ -26,12 +27,9 @@ public class Performance implements Serializable {
     @Column(nullable = false, name = "DESCRIPTION")
     private String description;
 
-    @OneToMany(
-            mappedBy = "performance",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<PerformancePerson> roles = new ArrayList<>();
+    @OneToMany(mappedBy = "performance")
+    @JsonIgnore
+    private List<PerformancePerson> roles;
 
     public Performance() {
     }
@@ -41,6 +39,39 @@ public class Performance implements Serializable {
         this.length = length;
         this.isRegular = isRegular;
         this.description = description;
+    }
+
+    public void addNewRole(Person person, String name) {
+        PerformancePerson performancePerson = new PerformancePerson(person, this, name);
+        roles.add(performancePerson);
+        person.getPerformances().add(performancePerson);
+    }
+
+    public void removeRole(String role) {
+        for (Iterator<PerformancePerson> iterator = roles.iterator();iterator.hasNext();) {
+            PerformancePerson performancePerson = iterator.next();
+
+            if (performancePerson.getPerformance().equals(this) && performancePerson.getRoleName().equals(role)) {
+                iterator.remove();
+                performancePerson.getPerson().getPerformances().remove(performancePerson);
+                performancePerson.setPerformance(null);
+                performancePerson.setPerson(null);
+            }
+        }
+
+    }
+
+    public void removePersonFromRole(Person person) {
+        for (Iterator<PerformancePerson> iterator = roles.iterator();iterator.hasNext();) {
+            PerformancePerson performancePerson = iterator.next();
+
+            if (performancePerson.getPerformance().equals(this) && performancePerson.getPerson().equals(person)) {
+                iterator.remove();
+                performancePerson.getPerson().getPerformances().remove(performancePerson);
+                performancePerson.setPerformance(null);
+                performancePerson.setPerson(null);
+            }
+        }
     }
 
     public Integer getId() {
@@ -82,4 +113,14 @@ public class Performance implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public List<PerformancePerson> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<PerformancePerson> roles) {
+        this.roles = roles;
+    }
+
+
 }

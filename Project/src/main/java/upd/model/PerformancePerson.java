@@ -3,21 +3,24 @@ package upd.model;
 import sun.misc.Perf;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Objects;
 
 @Entity
 @Table(name = "PERFORMANCE_PERSON")
 public class PerformancePerson {
 
-    @EmbeddedId
-    private PerformancePersonId id;
+    @Id
+    @GeneratedValue
+    @Column(name = "ID_PERFORMANCE_PERSON")
+    private Integer id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("personId")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_PERSON", insertable=false, updatable=false)
     private Person person;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("performanceId")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ID_PERFORMANCE", insertable=false, updatable=false)
     private Performance performance;
 
     @Column(name = "ROLE_NAME")
@@ -29,21 +32,23 @@ public class PerformancePerson {
     public PerformancePerson(Person person, Performance performance) {
         this.person = person;
         this.performance = performance;
-        this.id = new PerformancePersonId(person.getId(), performance.getId());
+        performance.getRoles().add(this);
+        person.getPerformances().add(this);
     }
 
     public PerformancePerson(Person person, Performance performance, String roleName) {
         this.person = person;
         this.performance = performance;
-        this.id = new PerformancePersonId(person.getId(), performance.getId());
         this.roleName = roleName;
+        performance.getRoles().add(this);
+        person.getPerformances().add(this);
     }
 
-    public PerformancePersonId getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(PerformancePersonId id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

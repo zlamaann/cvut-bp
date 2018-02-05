@@ -1,5 +1,6 @@
 package upd.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.eclipse.persistence.annotations.*;
 import org.eclipse.persistence.annotations.Convert;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -80,12 +81,17 @@ public class Person implements Serializable {
                     inverseJoinColumns=@JoinColumn(name="ID_SHIFT"))
     private List<Shift> shifts = new ArrayList<>();
 
-    @OneToMany(
-            mappedBy = "person",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<PerformancePerson> performances = new ArrayList<>();
+    @OneToMany(mappedBy = "person")
+    @JsonIgnore
+    private List<PerformancePerson> performances;
+
+    public List<PerformancePerson> getPerformances() {
+        return performances;
+    }
+
+    public void setPerformances(List<PerformancePerson> performances) {
+        this.performances = performances;
+    }
 
     public Integer getId() {
         return id;

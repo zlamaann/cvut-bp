@@ -1,6 +1,8 @@
 package upd.rest;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import upd.exception.NotFoundException;
+import upd.model.Performance;
 import upd.model.Person;
 import upd.rest.util.RestUtils;
 import upd.service.PersonService;
@@ -47,6 +50,33 @@ public class PersonController extends BaseController {
         final List<Person> u = personService.getByName(name);
         if (u == null) {
             throw NotFoundException.create("User", name);
+        }
+        return u;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/roles/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<String> getRolesByPersonId(@PathVariable("id") Integer id) {
+        final List<String> u = personService.getRolesByPersonId(id);
+        if (u == null) {
+            throw NotFoundException.create("User with id ", id);
+        }
+        return u;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/role/{role}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Person> getPersonByRole(@PathVariable("role") String role) {
+        final List<Person> u = personService.getPersonByRole(role);
+        if (u == null) {
+            throw NotFoundException.create("Role ", role);
+        }
+        return u;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/roles/all/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public HashMap<String,ArrayList<Person>> getAllRolesByPerformanceId (@PathVariable("id") Integer id) {
+        final HashMap<String,ArrayList<Person>> u = personService.getRolesByPerformanceId(id);
+        if (u == null) {
+            throw NotFoundException.create("Performance with ", id);
         }
         return u;
     }
