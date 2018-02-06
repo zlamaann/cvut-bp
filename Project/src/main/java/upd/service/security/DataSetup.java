@@ -18,8 +18,6 @@ public class DataSetup {
 
     private static final List<CompanyType> COMPANY_TYPES = initCompanyTypes();
 
-    @Autowired
-    private CityService cityService;
 
     @Autowired
     private UserService userService;
@@ -70,10 +68,7 @@ public class DataSetup {
 
     @PostConstruct
     private void setupData() {
-        /* CITIES.stream().filter(c -> !cityService.exists(c.getPostalCode()))
-                .forEach(c -> cityService.persist(c));
-
-        City city = cityService.findByPostalCode(12000);
+        /*
         Address address = new Address();
         address.setId(1);
         address.setStreet("Květinová");

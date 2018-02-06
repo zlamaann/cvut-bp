@@ -21,6 +21,10 @@ public abstract class BaseService<T> {
         return getPrimaryDao().find(id);
     }
 
+    public void merge(T instance) {
+        getPrimaryDao().merge(instance);
+    }
+
     public void persist(T instance) {
         getPrimaryDao().persist(instance);
     }

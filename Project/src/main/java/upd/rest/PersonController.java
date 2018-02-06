@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import upd.exception.NotFoundException;
-import upd.model.Performance;
+import upd.model.Address;
 import upd.model.Person;
+import upd.model.PersonType;
 import upd.rest.util.RestUtils;
 import upd.service.PersonService;
+import upd.service.PersonTypeService;
 
 @RestController
 @RequestMapping("/user")
@@ -27,6 +29,9 @@ public class PersonController extends BaseController {
     
     @Autowired
     private PersonService personService;
+
+    @Autowired
+    private PersonTypeService personTypeService;
 
     //@PreAuthorize("hasAuthority('ROLE_USER')")
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -95,7 +100,54 @@ public class PersonController extends BaseController {
             LOG.trace("User {} successfully registered.", user);
         }
         final HttpHeaders headers = RestUtils
-                .createLocationHeaderFromCurrentUri("/{email}", user.getEmail());
+                .createLocationHeaderFromCurrentUri("/{email}", user);
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/{id}" ,consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> addPersonTypes(@RequestBody List<Integer> types, @PathVariable Integer id) {
+        Person person = personService.find(id);
+        PersonType personType;
+        for (Integer typeId : types) {
+            personType = personTypeService.find(typeId);
+            person.addRole(personType);
+        }
+        personService.merge(person);
+        if (LOG.isTraceEnabled()) {
+            LOG.trace("Types to user {} successfully added.", person);
+        }
+        final HttpHeaders headers = RestUtils
+                .createLocationHeaderFromCurrentUri("/{id}", id);
+        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+    }
+
+    public static class PersonWrapper {
+        private Person person;
+        private List<Integer> integerRoles;
+
+        public PersonWrapper() {
+        }
+
+        public PersonWrapper(Person person, List<Integer> integerRoles) {
+            this.person = person;
+            this.integerRoles = integerRoles;
+        }
+
+        public Person getPerson() {
+            return person;
+        }
+
+        public void setPerson(Person person) {
+            this.person = person;
+        }
+
+        public List<Integer> getIntegerRoles() {
+            return integerRoles;
+        }
+
+        public void setIntegerRoles(List<Integer> integerRoles) {
+            this.integerRoles = integerRoles;
+        }
+    }
+
 }

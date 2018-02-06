@@ -11,7 +11,7 @@ public class PersonType {
     @Column(name="ID_PERSON_TYPE")
     private Integer id;
 
-    @Column(name = "NAME")
+    @Column(name = "NAME", insertable = false, updatable = false)
     private String name;
 
     public PersonType() {

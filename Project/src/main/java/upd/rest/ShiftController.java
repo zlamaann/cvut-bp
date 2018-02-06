@@ -34,7 +34,7 @@ public class ShiftController extends BaseController {
         return shifts;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{type}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/type/{type}", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Shift> getShifts(@PathVariable String type) {
         List<Shift> shifts = null;
         switch (type) {

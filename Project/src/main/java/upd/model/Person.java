@@ -16,7 +16,7 @@ import java.util.List;
 @NamedQueries(
         {
                 @NamedQuery(name = "Person.findByEmail", query = "SELECT p FROM Person p WHERE LOWER(p.email) = LOWER(:email)"),
-                @NamedQuery(name = "Person.findByName", query = "SELECT p, pt.name FROM Person p JOIN p.roles pt WHERE LOWER(p.name) LIKE LOWER(:name) OR LOWER(p.surname) LIKE LOWER(:name)")
+                @NamedQuery(name = "Person.findById", query = "SELECT p FROM Person p WHERE p.id = :id")
         }
 )
 public class Person implements Serializable {
@@ -64,7 +64,7 @@ public class Person implements Serializable {
     @Column(nullable = false, name = "PHONE_NUMBER")
     private Integer phoneNumber;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name="ID_ADDRESS")
     private Address address;
 
@@ -119,6 +119,26 @@ public class Person implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setRoles(List<PersonType> roles) {
+        this.roles = roles;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
+    }
+
+    public void setShifts(List<Shift> shifts) {
+        this.shifts = shifts;
     }
 
     public String getSurname() {

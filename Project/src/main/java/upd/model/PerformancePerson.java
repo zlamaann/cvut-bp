@@ -11,16 +11,16 @@ import java.util.Objects;
 public class PerformancePerson {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ID_PERFORMANCE_PERSON")
     private Integer id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_PERSON", insertable=false, updatable=false)
+    @ManyToOne
+    @JoinColumn(name = "ID_PERSON")
     private Person person;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ID_PERFORMANCE", insertable=false, updatable=false)
+    @ManyToOne
+    @JoinColumn(name = "ID_PERFORMANCE")
     private Performance performance;
 
     @Column(name = "ROLE_NAME")

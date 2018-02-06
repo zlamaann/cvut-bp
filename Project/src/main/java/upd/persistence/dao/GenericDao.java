@@ -8,6 +8,8 @@ public interface GenericDao<T> {
 
     List<T> findAll();
 
+    void merge(T entity);
+
     void persist(T entity);
 
     void persist(Collection<T> entities);

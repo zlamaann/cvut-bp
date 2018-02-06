@@ -45,6 +45,17 @@ public abstract class BaseDao<T> implements GenericDao<T> {
 
     @Transactional
     @Override
+    public void merge(T entity) {
+        Objects.requireNonNull(entity);
+        try {
+            em.merge(entity);
+        } catch (RuntimeException e) {
+            throw new PersistenceException(e);
+        }
+    }
+
+    @Transactional
+    @Override
     public void persist(T entity) {
         Objects.requireNonNull(entity);
         try {

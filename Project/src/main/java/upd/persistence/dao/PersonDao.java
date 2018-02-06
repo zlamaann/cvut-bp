@@ -43,6 +43,19 @@ public class PersonDao extends BaseDao<Person> {
     }
 
     @Transactional(readOnly = true)
+    public Person findById(Integer id) {
+        if (id == null) {
+            return null;
+        }
+        try {
+            return em.createNamedQuery("Person.findById", Person.class).setParameter("id", id)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    @Transactional(readOnly = true)
     public List<Person> findByName(String name) {
 
         if (name.equals("")) {

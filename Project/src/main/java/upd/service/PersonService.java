@@ -31,6 +31,10 @@ public class PersonService extends BaseService<Person> {
         return personDao.findByEmail(email);
     }
 
+    public Person getById(Integer id) {
+        return personDao.findById(id);
+    }
+
     public List<Person> getByName(String name) {
         return personDao.findByName(name);
     }

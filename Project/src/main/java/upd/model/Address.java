@@ -1,6 +1,7 @@
 package upd.model;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.Serializable;
 
 @Entity
@@ -16,19 +17,22 @@ public class Address implements Serializable {
     private String streetName;
 
     @Column(nullable = false, name = "STREET_NUMBER")
-    private String streetNumber;
+    private Integer streetNumber;
 
-    @ManyToOne
-    @JoinColumn(name="ID_CITY")
-    private City city ;
+    @Column(nullable = false, name = "CITY")
+    private String city;
+
+    @Column(nullable = false, name = "POSTAL_CODE")
+    private Integer postalCode;
 
     public Address() {
     }
 
-    public Address(String streetName, String streetNumber, City city) {
+    public Address(String streetName, Integer streetNumber, String city, Integer postalCode) {
         this.streetName = streetName;
         this.streetNumber = streetNumber;
         this.city = city;
+        this.postalCode = postalCode;
     }
 
     public Integer getId() {
@@ -47,19 +51,27 @@ public class Address implements Serializable {
         this.streetName = streetName;
     }
 
-    public String getStreetNumber() {
+    public Integer getStreetNumber() {
         return streetNumber;
     }
 
-    public void setStreetNumber(String streetNumber) {
+    public void setStreetNumber(Integer streetNumber) {
         this.streetNumber = streetNumber;
     }
 
-    public City getCity() {
+    public String getCity() {
         return city;
     }
 
-    public void setCity(City city) {
+    public void setCity(String city) {
         this.city = city;
+    }
+
+    public Integer getPostalCode() {
+        return postalCode;
+    }
+
+    public void setPostalCode(Integer postalCode) {
+        this.postalCode = postalCode;
     }
 }
