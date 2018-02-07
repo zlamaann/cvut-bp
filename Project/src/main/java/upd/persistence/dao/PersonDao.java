@@ -3,6 +3,7 @@ package upd.persistence.dao;
 import org.eclipse.persistence.config.QueryHints;
 import org.eclipse.persistence.config.ResultType;
 import sun.misc.Perf;
+import upd.model.Message;
 import upd.model.Performance;
 import upd.model.Person;
 import javax.persistence.NoResultException;
@@ -130,6 +131,15 @@ public class PersonDao extends BaseDao<Person> {
                 personList.add((Person) role[1]);
             }
             return orderedRoles;
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    public List<Message> getMessages() {
+        try {
+            return em.createQuery("SELECT m, p.name, p.surname FROM Person p JOIN p.messages m ", Message.class)
+                    .getResultList();
         } catch (NoResultException e) {
             return null;
         }

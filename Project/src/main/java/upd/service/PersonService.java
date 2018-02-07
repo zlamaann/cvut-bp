@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import upd.exception.UsernameExistsException;
 import upd.exception.ValidationException;
+import upd.model.Message;
 import upd.model.Performance;
 import upd.model.Person;
 import upd.persistence.dao.GenericDao;
@@ -45,6 +46,10 @@ public class PersonService extends BaseService<Person> {
 
     public List<Person> getPersonByRole(String roleName) {
         return personDao.getPersonByRole(roleName);
+    }
+
+    public List<Message> getMessages() {
+        return personDao.getMessages();
     }
 
     public HashMap<String,ArrayList<Person>> getRolesByPerformanceId(Integer id) {

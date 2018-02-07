@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import upd.exception.NotFoundException;
 import upd.model.Address;
+import upd.model.Message;
 import upd.model.Person;
 import upd.model.PersonType;
 import upd.rest.util.RestUtils;
@@ -89,8 +90,15 @@ public class PersonController extends BaseController {
     //@PreAuthorize("hasAuthority('ROLE_USER')")
     @RequestMapping(method = RequestMethod.GET, value = "/current", produces = MediaType.APPLICATION_JSON_VALUE)
     public Person getCurrent(Principal principal) {
+        if (principal == null) return null;
         final String username = principal.getName();
         return getByEmail(username);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/messages", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Message> getMessages() {
+        List<Message> messages = personService.getMessages();
+        return messages;
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)

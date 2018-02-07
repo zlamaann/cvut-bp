@@ -1,8 +1,12 @@
 import React from 'react';
+import { BrowserRouter} from 'react-router-dom';
+import Layout from "./components/Layout";
 import ReactDOM from 'react-dom';
 
 ReactDOM.render(
-<h1>Hello, world! :P</h1>,
+    <BrowserRouter>
+        <Layout/>
+    </BrowserRouter>,
 document.getElementById('root')
 );
 
