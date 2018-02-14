@@ -59,7 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().permitAll().and()
+        http.authorizeRequests().anyRequest().authenticated().and()
             .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
             .and().headers().frameOptions().sameOrigin()
             .and()

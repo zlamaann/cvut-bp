@@ -10,7 +10,9 @@ public enum PersonTypeEnum {
     COSTUMIER("Kostymérka"),
     TECHNICIAN("Technik"),
     LIGHTING("Osvětlovač"),
-    SOUND("Zvukař");
+    SOUND("Zvukař"),
+    PRINCIPAL("Jiří Suchý"),
+    MAIN_USHERETTE("Hlavní uvaděčka");
 
     private String name;
 

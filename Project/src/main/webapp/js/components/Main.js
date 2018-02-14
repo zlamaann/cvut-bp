@@ -1,14 +1,14 @@
 import React from 'react';
 import {Route, Switch} from "react-router-dom";
-import Calendar from "./components/calendar/Calendar";
-import Shifts from "./components/shifts/Shifts";
-import Messages from "./components/messages/Messages";
-import Performances from "./components/performances/Performances";
-import Rehearsals from "./components/rehearsals/Rehearsals";
-import Contacts from "./components/Contacts";
-import Employees from "./components/employees/Employees";
-import Profile from "./components/Profile";
-import Logout from "./components/Logout";
+import Calendar from "./calendar/Calendar";
+import Shifts from "./shifts/Shifts";
+import Messages from "./messages/Messages";
+import Performances from "./performances/Performances";
+import Rehearsals from "./rehearsals/Rehearsals";
+import Contacts from "./Contacts";
+import Employees from "./employees/Employees";
+import Profile from "./Profile";
+import Logout from "./Logout";
 
 export default class Main extends React.Component {
 
