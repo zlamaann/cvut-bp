@@ -1,12 +1,19 @@
 import React from 'react';
-import { BrowserRouter} from 'react-router-dom';
-import Layout from "./components/Layout";
-import ReactDOM from 'react-dom';
+import { HashRouter} from 'react-router-dom';
+import configureStore from './store/configureStore';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import Layout from "./components/common/Layout";
+//np import "../node_modules/toastr/build/toastr.min.css";
 
-ReactDOM.render(
-    <BrowserRouter>
-        <Layout/>
-    </BrowserRouter>,
-document.getElementById('root')
+const store = configureStore();
+
+render(
+    <Provider store={store}>
+        <HashRouter>
+            <Layout/>
+        </HashRouter>
+    </Provider>,
+    document.getElementById('root')
 );
 

@@ -1,45 +1,42 @@
 
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 export default class Header extends React.Component {
 
     render () {
         return (
             <header className="flex nav-down">
-                <img src="../../resources/images/logo.gif" alt=""/>
+                <img src="../../../resources/images/logo.gif" alt=""/>
                     <section className="flex">
                         <nav className="flex" >
                             <ul id="nav-top">
                                 <li>
-                                    <Link to="/profile">PROFIL</Link></li>
+                                    <NavLink to="/profile">PROFIL</NavLink></li>
                                 <li>
-                                    <Link to="/logout">ODHLÁSIT SE</Link></li>
+                                    <NavLink to="/logout">ODHLÁSIT SE</NavLink></li>
                             </ul>
 
                         </nav>
                         <nav className="flex">
                             <ul id="main-nav">
-                                <li className="active">
-                                    <Link to="/">KALENDÁŘ</Link>
+                                <li>
+                                    <NavLink to="/" exact activeClassName="active">KALENDÁŘ</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/shifts">SMĚNY</Link>
+                                    <NavLink to="/shifts" activeClassName="active">SMĚNY</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/messages">NÁSTĚNKA</Link>
+                                    <NavLink to="/messages" activeClassName="active">NÁSTĚNKA</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/performance">PŘEDSTAVENÍ</Link>
+                                    <NavLink to="/performances" activeClassName="active">PŘEDSTAVENÍ</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/employees">ZAMĚSTNANCI</Link>
+                                    <NavLink to="/employees" activeClassName="active">ZAMĚSTNANCI</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/rehearsals">ZKOUŠKY</Link>
-                                </li>
-                                <li>
-                                    <Link to="/contacts">KONTAKTY</Link>
+                                    <NavLink to="/rehearsals" activeClassName="active">ZKOUŠKY</NavLink>
                                 </li>
                             </ul>
                         </nav>
