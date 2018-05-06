@@ -1,0 +1,67 @@
+{
+  "name": "upd",
+  "version": "0.0.1",
+  "description": "Application for managing the theatre.",
+  "main": "js/app.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-runtime": "^6.7.5",
+    "body-parser": "~1.18.2",
+    "classnames": "~2.2.5",
+    "express": "~4.16.2",
+    "history": "^4.7.2",
+    "js-cookie": "~2.2.0",
+    "keymirror": "~0.1.1",
+    "object-assign": "~4.1.1",
+    "prop-types": "^15.6.1",
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.0",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.0",
+    "redux-immutable-state-invariant": "^2.1.0",
+    "redux-thunk": "^2.2.0",
+    "remarkable": "~1.7.1",
+    "superagent": "~3.8.2",
+    "toastr": "^2.1.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babelify": "^8.0.0",
+    "browserify": "^15.2.0",
+    "clean-css": "^4.1.9",
+    "envify": "^4.1.0",
+    "eslint": "^4.17.0",
+    "eslint-plugin-react": "^7.6.1",
+    "jsdom": "^11.6.2",
+    "null-loader": "^0.1.1",
+    "uglify-js": "^3.3.9",
+    "watchify": "^3.10.0",
+    "webpack": "^3.10.0"
+  },
+  "scripts": {
+    "start": "watchify -o ../../../target/upd-1.0.0/js/bundle.js -v -d js/app.js",
+    "build": "browserify . -t [envify --NODE_ENV production] -o js/bundle.js",
+    "lint": "eslint js"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
+  "author": "Anna Zlamalova",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.fel.cvut.cz:zlamaann/bp.git"
+  },
+  "private": true
+}
