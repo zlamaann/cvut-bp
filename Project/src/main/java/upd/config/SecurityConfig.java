@@ -59,15 +59,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        // TODO .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint).and()
         http.authorizeRequests().anyRequest().authenticated().and()
-            .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
-            .and().headers().frameOptions().sameOrigin()
+            .headers().frameOptions().sameOrigin()
             .and()
             .authenticationProvider(authenticationProvider)
             .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
             .csrf().disable()
-            .formLogin().successHandler(authenticationSuccessHandler)
-            .failureHandler(authenticationFailureHandler)
+            .formLogin().permitAll().defaultSuccessUrl("/")
             .loginProcessingUrl(SecurityConstants.SECURITY_CHECK_URI)
             .usernameParameter(SecurityConstants.USERNAME_PARAM).passwordParameter(SecurityConstants.PASSWORD_PARAM)
             .and()

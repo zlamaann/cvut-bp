@@ -21,6 +21,11 @@ public class ShiftService extends BaseService<Shift> {
     }
 
     @Transactional(readOnly = true)
+    public List<Shift> getAllSorted() {
+        return shiftDao.findAllSorted();
+    }
+
+    @Transactional(readOnly = true)
     public List<Shift> getTodayShifts() {
         return shiftDao.findByToday();
     }

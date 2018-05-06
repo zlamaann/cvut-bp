@@ -14,6 +14,9 @@ public class PersonType {
     @Column(name = "NAME", insertable = false, updatable = false)
     private String name;
 
+    @Column(name = "VALUE", insertable = false, updatable = false)
+    private String value;
+
     public PersonType() {
     }
 
@@ -31,5 +34,13 @@ public class PersonType {
 
     protected void setName(String name) {
         this.name = name;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

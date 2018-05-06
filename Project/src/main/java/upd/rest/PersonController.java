@@ -26,8 +26,8 @@ import upd.service.PersonService;
 import upd.service.PersonTypeService;
 
 @RestController
-@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'OFFICE')")
-@RequestMapping("/user")
+
+@RequestMapping("/person")
 public class PersonController extends BaseController {
     
     @Autowired
@@ -131,33 +131,9 @@ public class PersonController extends BaseController {
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
-    public static class PersonWrapper {
-        private Person person;
-        private List<Integer> integerRoles;
-
-        public PersonWrapper() {
-        }
-
-        public PersonWrapper(Person person, List<Integer> integerRoles) {
-            this.person = person;
-            this.integerRoles = integerRoles;
-        }
-
-        public Person getPerson() {
-            return person;
-        }
-
-        public void setPerson(Person person) {
-            this.person = person;
-        }
-
-        public List<Integer> getIntegerRoles() {
-            return integerRoles;
-        }
-
-        public void setIntegerRoles(List<Integer> integerRoles) {
-            this.integerRoles = integerRoles;
-        }
+    @RequestMapping(method = RequestMethod.GET, value = "/types", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<PersonType> getAllTypes() {
+        return personTypeService.findAll();
     }
 
 }

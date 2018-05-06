@@ -1,5 +1,7 @@
 package upd.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -21,11 +23,11 @@ public class Shift implements Serializable {
     private Integer id;
 
     @Column(nullable = false, name = "TIME_FROM")
-    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date timeFrom;
 
     @Column(nullable = false, name = "TIME_TO")
-    @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date timeTo;
 
     @Column(nullable = false, name = "NOTES")
@@ -39,7 +41,8 @@ public class Shift implements Serializable {
     @JoinColumn(name="ID_PERFORMANCE")
     private Performance performance ;
 
-    @Enumerated(EnumType.STRING)
+    @ManyToOne
+    @JoinColumn(name="ID_SHIFT_TYPE")
     private ShiftType type;
 
     public Shift() {

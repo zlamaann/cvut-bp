@@ -31,6 +31,15 @@ public class ShiftDao extends BaseDao<Shift> {
     }
 
     @Transactional(readOnly = true)
+    public List<Shift> findAllSorted() {
+        try {
+            return em.createQuery("SELECT s FROM Shift s ORDER BY s.timeFrom", Shift.class).getResultList();
+        } finally {
+            em.close();
+        }
+    }
+
+    @Transactional(readOnly = true)
     public List<Shift> findByToday() {
 
         calendar.setTime(today);

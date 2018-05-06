@@ -18,6 +18,7 @@ public class HttpAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
                          AuthenticationException e) throws IOException, ServletException {
-        httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Authentication required.");
+        httpServletResponse.setContentType("application/json");
+        httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Authentication required!");
     }
 }
