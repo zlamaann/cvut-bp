@@ -5,13 +5,15 @@ import shifts from './shiftReducer';
 import shiftTypes from './shiftTypesReducer';
 import locations from './locationReducer';
 import employees from './employeeReducer';
+import current from './profileReducer';
 
 const rootReducer  = combineReducers({
    calendar,
     performances,
     shifts, shiftTypes,
     locations,
-    employees
+    employees,
+    current
 });
 
 export default rootReducer;

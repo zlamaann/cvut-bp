@@ -62,7 +62,8 @@ class ManageEmployeesPage extends React.Component {
                 city: this.state.employee.address.city,
                 postalCode: this.state.employee.address.postalCode
             },
-            roles: []
+            roles: this.state.employee.roles,
+            performances: []
         };
 
         this.props.actions.saveEmployee(employee)
@@ -78,13 +79,18 @@ class ManageEmployeesPage extends React.Component {
     }
 
     redirect() {
-        this.setState({saving: false});
+        this.setState({
+            saving: false,
+            isEditing: false
+        });
         toastr.success('Zaměstnanec uložen.');
-        this.context.router.history.push('/persons');
     }
 
     render() {
-        if (this.state.isEditing) {
+        let paramId;
+        if (this.props.match.params)  paramId = this.props.match.params.id;
+
+        if (this.state.isEditing || !paramId) {
             return (
                 <EmployeeForm
                     performances={[]}
@@ -97,13 +103,21 @@ class ManageEmployeesPage extends React.Component {
             );
         }
 
+        const roles = this.state.employee.roles;
+        const length = roles.length;
+
         return (
             <div>
                 <h3>{this.state.employee.name + " " + this.state.employee.surname}</h3>
                 <p>E-mail: {this.state.employee.email}</p>
                 <p>Telefonní číslo: {this.state.employee.phoneNumber}</p>
                 <p>Role v představeních: {this.state.employee.performances}</p>
-                <p>Uživatelské role: {this.state.employee.roles}</p>
+                <p>Uživatelské role: {
+                    roles.map((role, index) => {
+                        return `${role.value}${index + 1 === length ? "" : ", "}`
+                    })
+                }
+                </p>
                 <input type="submit" value="Upravit" onClick={this.toggleEdit}/>
             </div>
         )
@@ -129,7 +143,7 @@ function getEmployeeById(employees, id) {
 function mapStateToProps(state, ownProps) {
     const employeeId = ownProps.match.params.id; // path '/employee/:id'
     let employee = {
-        id: '', name: '', surname: '', email: '', phoneNumber: '', address: { id: '', streetName: '', streetNumber: '',  city: '', postalCode: ''}, roles: []
+        id: '', name: '', surname: '', email: '', phoneNumber: '', address: { id: '', streetName: '', streetNumber: '',  city: '', postalCode: ''}, roles: [], performances: []
     };
 
     if (employeeId && state.employees.length > 0) {
@@ -147,7 +161,8 @@ function mapStateToProps(state, ownProps) {
                 city: result.address.city,
                 postalCode: result.address.postalCode.toString()
             },
-            roles: []
+            roles: result.roles,
+            performances: []
         };
 
     }

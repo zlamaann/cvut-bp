@@ -74,8 +74,12 @@ public class PersonService extends BaseService<Person> {
         if (orig == null) {
             throw new IllegalArgumentException("Cannot update person identifier.");
         }
-        if (!orig.getPassword().equals(instance.getPassword())) {
-            instance.encodePassword(passwordEncoder);
+        if (instance.getPassword() != null) {
+            if (!orig.getPassword().equals(instance.getPassword())) {
+                instance.encodePassword(passwordEncoder);
+            }
+        } else {
+            instance.setPassword(orig.getPassword());
         }
         personDao.update(instance);
     }

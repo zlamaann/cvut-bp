@@ -121,7 +121,8 @@ public class PersonController extends BaseController {
     public Person getCurrent(Principal principal) {
         if (principal == null) return null;
         final String username = principal.getName();
-        return getByEmail(username);
+        Person person = getByEmail(username);
+        return person;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/messages", produces = MediaType.APPLICATION_JSON_VALUE)

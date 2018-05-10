@@ -1,12 +1,12 @@
 import * as types from './actionTypes';
 import axios from 'axios';
 
-export function updateShiftSuccess(shift) {
-    return { type: types.UPDATE_EMPLOYEE_SUCCESS, shift};
+export function updateEmployeeSuccess(employee) {
+    return { type: types.UPDATE_EMPLOYEE_SUCCESS, employee};
 }
 
-export function createShiftSuccess(shift) {
-    return { type: types.CREATE_EMPLOYEE_SUCCESS, shift};
+export function createEmployeeSuccess(employee) {
+    return { type: types.CREATE_EMPLOYEE_SUCCESS, employee};
 }
 
 export function loadEmployeesSuccess(employees) {
@@ -42,14 +42,14 @@ export function saveEmployee(employee) {
         if (employee.id) {
             return axios.put('rest/persons/' + employee.id, employee)
                 .then(response => {
-                    dispatch(updateShiftSuccess(response.data))
+                    dispatch(updateEmployeeSuccess(response.data))
                 }).catch(error => {
                     throw (error);
                 });
         } else {
             return axios.post('rest/persons', employee)
                 .then(response => {
-                    dispatch(createShiftSuccess(response.data));
+                    dispatch(createEmployeeSuccess(response.data));
                 }).catch(error => {
                     throw (error);
                 });

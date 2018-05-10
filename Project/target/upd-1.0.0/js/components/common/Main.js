@@ -7,7 +7,7 @@ import PerformancesPage from "../performances/PerformancesPage";
 import ManagePerformancesPage from "../performances/ManagePerformancesPage";
 import Rehearsals from "../rehearsals/Rehearsals";
 import EmployeesPage from "../employees/EmployeesPage";
-import Profile from "../profile/Profile";
+import ProfilePage from "../profile/ProfilePage";
 import Logout from "../Logout";
 import ManageShiftPage from "../shifts/ManageShiftPage";
 import ManageEmployeesPage from "../employees/ManageEmployeesPage";
@@ -29,7 +29,7 @@ export default class Main extends React.Component {
                     <Route path="/employee/:id" component={ManageEmployeesPage}/>
                     <Route path="/employee" component={ManageEmployeesPage}/>
                     <Route path="/rehearsals" component={Rehearsals}/>
-                    <Route path="/profile" component={Profile}/>
+                    <Route path="/profile" component={ProfilePage}/>
                     <Route path="/logout" component={Logout}/>
 
                 </Switch>

@@ -3,5 +3,6 @@ export default {
     shiftTypes: [],
     shifts: [],
     locations: [],
-    employees: []
+    employees: [],
+    current: {}
 }

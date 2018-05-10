@@ -16,7 +16,7 @@ class CalendarPage extends React.Component {
     }
 
     componentWillMount() {
-        //this.props.actions.loadDailyCalendar();
+        this.props.actions.loadDailyCalendar();
     }
 
     redirectToAddShift() {
