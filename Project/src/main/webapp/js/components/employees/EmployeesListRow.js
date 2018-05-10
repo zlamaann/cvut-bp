@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const EmployeesListRow = ({employee, onClick}) => {
     return (
         <tr>
-            <td>{employee.name === undefined && employee.surname === undefined ? "" : employee.name + " " + employee.surname}</td>
+            <td>{(employee.name === undefined ? "" : employee.name) + " " + (employee.surname === undefined ? "" :  employee.surname)}</td>
             <td>{employee.email === undefined ? "" : employee.email}</td>
             <td>{employee.phoneNumber === undefined ? "" : employee.phoneNumber}</td>
             <td><Link to={'/employee/' + employee.id}>Detaily</Link></td>

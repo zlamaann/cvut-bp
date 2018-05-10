@@ -59,7 +59,7 @@ public class PersonController extends BaseController {
                             " in the data.");
         }
         if (!personService.exists(personId)) {
-            throw NotFoundException.create("Shift", personId);
+            throw NotFoundException.create("Person", personId);
         }
         personService.update(person);
         if (LOG.isDebugEnabled()) {

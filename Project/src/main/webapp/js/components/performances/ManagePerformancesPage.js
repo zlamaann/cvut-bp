@@ -1,70 +1,65 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as employeesActions from '../../actions/employeesActions';
+import * as performancesActions from '../../actions/performancesActions';
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
+import PerformanceForm from "./PerformanceForm";
 
 class ManagePerformancesPage extends React.Component {
     constructor(props, context) {
         super(props, context);
 
         this.state = {
-            employee: Object.assign({}, props.employee),
+            performance: Object.assign({}, props.performance),
             errors: {},
             saving: false,
             isEditing: false
         };
 
-        this.updateEmployeeState = this.updateEmployeeState.bind(this);
+        this.updatePerformanceState = this.updatePerformanceState.bind(this);
         this.findInArray = this.findInArray.bind(this);
-        this.saveEmployee = this.saveEmployee.bind(this);
+        this.savePerformance = this.savePerformance.bind(this);
         this.redirect = this.redirect.bind(this);
         this.toggleEdit = this.toggleEdit.bind(this);
     }
 
     componentWillMount() {
-        this.props.actions.loadEmployees();
+        this.props.actions.loadPerformances();
 
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.employee.id !== nextProps.employee.id) {
-            this.setState({employee: Object.assign({}, nextProps.employee)});
+        if (this.props.performance.id !== nextProps.performance.id) {
+            this.setState({performance: Object.assign({}, nextProps.performance)});
         }
     }
 
-    updateEmployeeState(event) {
-        const field = event.target.name;
-        let employee = Object.assign({}, this.state.employee);
-        employee[field] = event.target.value;
-        return this.setState({employee:employee});
+    updatePerformanceState(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const field = target.name;
+        let performance = Object.assign({}, this.state.performance);
+        performance[field] = value;
+        return this.setState({performance:performance});
     }
 
     findInArray(array, id) {
         return array.find( item => item.id === Number(id));
     }
 
-    saveEmployee(event) {
+    savePerformance(event) {
         event.preventDefault();
         this.setState({saving: true});
-        let employee = {
-            id: this.state.employee.id,
-            name: this.state.employee.name,
-            surname: this.state.employee.surname,
-            email: this.state.employee.email,
-            phoneNumber: this.state.employee.phoneNumber,
-            address: {
-                id: this.state.employee.address.id,
-                streetName: this.state.employee.address.streetName,
-                streetNumber: this.state.employee.address.streetNumber,
-                city: this.state.employee.address.city,
-                postalCode: this.state.employee.address.postalCode
-            },
-            roles: []
+        let performance = {
+            id: this.state.performance.id,
+            name: this.state.performance.name,
+            length: this.state.performance.length,
+            isRegular: this.state.performance.isRegular,
+            description: this.state.performance.description
         };
 
-        this.props.actions.saveEmployee(employee)
+        this.props.actions.savePerformance(performance)
             .then(() => this.redirect())
             .catch(error => {
                 toastr.error(error);
@@ -77,22 +72,35 @@ class ManagePerformancesPage extends React.Component {
     }
 
     redirect() {
-        this.setState({saving: false});
-        toastr.success('Zaměstnanec uložen.');
-        this.context.router.history.push('/persons');
+        this.setState({
+            saving: false,
+            isEditing: false
+        });
+        toastr.success('Představení uloženo.');
     }
 
     render() {
-        if (this.state.isEditing) {
+        let paramId;
+        if (this.props.match.params)  paramId = this.props.match.params.id;
+
+        if (this.state.isEditing || !paramId) {
             return (
-                <div></div>
+                <PerformanceForm
+                    performance={this.state.performance}
+                    onSave={this.savePerformance}
+                    onChange={this.updatePerformanceState}
+                    errors={this.state.errors}
+                    saving={this.state.saving}/>
             );
         }
 
         return (
             <div>
-                <h3>{this.state.employee.name + " " + this.state.employee.surname}</h3>
-                <button onClick={this.toggleEdit}>Upravit</button>
+                <h3>{this.state.performance.name}</h3>
+                <p>Délka: {this.state.performance.length}</p>
+                <p>Běžné představení: {this.state.performance.isRegular ? "Ano" : "Ne"}</p>
+                <p>Popis: {this.state.performance.description}</p>
+                <input type="submit" value="Upravit" onClick={this.toggleEdit}/>
             </div>
         )
 
@@ -100,7 +108,7 @@ class ManagePerformancesPage extends React.Component {
 }
 
 ManagePerformancesPage.propTypes = {
-    employee: PropTypes.object.isRequired,
+    performance: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
 };
 
@@ -108,46 +116,38 @@ ManagePerformancesPage.contextTypes = {
     router: PropTypes.object
 };
 
-function getEmployeeById(employees, id) {
-    const result = employees.filter(employee => employee.id === Number(id));
+function getPerformanceById(performances, id) {
+    const result = performances.filter(performance => performance.id === Number(id));
     if (result.length) return result[0];
     return null;
 }
 
 function mapStateToProps(state, ownProps) {
-    const employeeId = ownProps.match.params.id; // path '/employee/:id'
-    let employee = {
-        id: '', name: '', surname: '', email: '', phoneNumber: '', address: { id: '', streetName: '', streetNumber: '',  city: '', postalCode: ''}, roles: []
+    const performanceId = ownProps.match.params.id; // path '/performance/:id'
+    let performance = {
+        id: '', name: '', length: '', isRegular: true, description: ''
     };
 
-    if (employeeId && state.employees.length > 0) {
-        let result = getEmployeeById(state.employees, employeeId);
-        employee = {
+    if (performanceId && state.performances.length > 0) {
+        let result = getPerformanceById(state.performances, performanceId);
+        performance = {
             id: result.id.toString(),
             name: result.name,
-            surname: result.surname,
-            email: result.email,
-            phoneNumber: result.phoneNumber.toString(),
-            address: {
-                id: result.address.id.toString(),
-                streetName: result.address.streetName,
-                streetNumber: result.address.streetNumber.toString(),
-                city: result.address.city,
-                postalCode: result.address.postalCode.toString()
-            },
-            roles: []
+            length: result.length.toString(),
+            isRegular: result.isRegular,
+            description: result.description
         };
 
     }
 
     return {
-        employee: employee
+        performance: performance
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(employeesActions, dispatch)
+        actions: bindActionCreators(performancesActions, dispatch)
     };
 }
 

@@ -22,7 +22,7 @@ public class Performance implements Serializable {
     private int length;
 
     @Column(nullable = false, name = "IS_REGULAR")
-    private String isRegular;
+    private Boolean isRegular;
 
     @Column(nullable = false, name = "DESCRIPTION")
     private String description;
@@ -34,7 +34,7 @@ public class Performance implements Serializable {
     public Performance() {
     }
 
-    public Performance(String name, int length, String isRegular, String description) {
+    public Performance(String name, int length, Boolean isRegular, String description) {
         this.name = name;
         this.length = length;
         this.isRegular = isRegular;
@@ -98,11 +98,11 @@ public class Performance implements Serializable {
         this.length = length;
     }
 
-    public String getIsRegular() {
+    public Boolean getIsRegular() {
         return isRegular;
     }
 
-    public void setIsRegular(String isRegular) {
+    public void setIsRegular(Boolean isRegular) {
         this.isRegular = isRegular;
     }
 

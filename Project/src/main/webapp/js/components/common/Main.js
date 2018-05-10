@@ -25,6 +25,7 @@ export default class Main extends React.Component {
                     <Route path="/messages" component={Messages}/>
                     <Route path="/performances" component={PerformancesPage}/>
                     <Route path="/performance/:id" component={ManagePerformancesPage}/>
+                    <Route path="/performance" component={ManagePerformancesPage}/>
                     <Route path="/employees" component={EmployeesPage}/>
                     <Route path="/employee/:id" component={ManageEmployeesPage}/>
                     <Route path="/employee" component={ManageEmployeesPage}/>

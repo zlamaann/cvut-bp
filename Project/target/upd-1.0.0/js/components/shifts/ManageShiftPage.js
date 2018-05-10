@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as shiftActions from '../../actions/shiftActions';
-import { loadPerformances } from '../../actions/performanceActions';
+import { loadPerformances } from '../../actions/performancesActions';
 import { loadShiftTypes } from '../../actions/shiftTypesActions';
 import { loadLocations } from '../../actions/locationActions';
 import { bindActionCreators } from 'redux';

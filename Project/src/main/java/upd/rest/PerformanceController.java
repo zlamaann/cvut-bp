@@ -7,8 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import upd.exception.NotFoundException;
 import upd.model.Performance;
 import upd.model.Person;
+import upd.rest.exception.DataConflictException;
 import upd.rest.util.RestUtils;
 import upd.service.PerformanceService;
 import upd.service.PersonService;
@@ -18,7 +20,7 @@ import javax.persistence.criteria.CriteriaBuilder;
 import java.util.*;
 
 @RestController
-@RequestMapping("/performance")
+@RequestMapping("/performances")
 public class PerformanceController extends BaseController {
 
     @Autowired
@@ -29,7 +31,8 @@ public class PerformanceController extends BaseController {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Performance> getAll() {
-        return performanceService.findAll();
+        List<Performance> performances = performanceService.findAll();
+        return performances;
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -41,6 +44,36 @@ public class PerformanceController extends BaseController {
         final HttpHeaders headers = RestUtils
                 .createLocationHeaderFromCurrentUri("/{name}", performance.getName());
         return new ResponseEntity<>(headers, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@PathVariable("id") Integer performanceId, @RequestBody Performance performance) {
+        if (!performanceId.equals(performance.getId())) {
+            throw new DataConflictException(
+                    "Performance id " + performanceId + " in the URL does not match the performance id " + performance.getId() +
+                            " in the data.");
+        }
+        if (!performanceService.exists(performanceId)) {
+            throw NotFoundException.create("Performance", performanceId);
+        }
+        performanceService.update(performance);
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Performance {} updated.", performance);
+        }
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable("id") Integer performanceId) {
+        final Performance performance = performanceService.find(performanceId);
+        if (performance == null) {
+            throw NotFoundException.create("Person", performanceId);
+        }
+        performanceService.remove(performance);
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Performance {} successfully removed.", performance);
+        }
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/{idPerf}", consumes = MediaType.APPLICATION_JSON_VALUE)
