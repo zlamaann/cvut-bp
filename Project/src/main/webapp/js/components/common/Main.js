@@ -6,11 +6,12 @@ import Messages from "../messages/Messages";
 import PerformancesPage from "../performances/PerformancesPage";
 import ManagePerformancesPage from "../performances/ManagePerformancesPage";
 import Rehearsals from "../rehearsals/Rehearsals";
-import Employees from "../employees/Employees";
+import EmployeesPage from "../employees/EmployeesPage";
 import Profile from "../profile/Profile";
 import Logout from "../Logout";
-import Login from "../Login";
 import ManageShiftPage from "../shifts/ManageShiftPage";
+import ManageEmployeesPage from "../employees/ManageEmployeesPage";
+
 
 export default class Main extends React.Component {
 
@@ -24,7 +25,9 @@ export default class Main extends React.Component {
                     <Route path="/messages" component={Messages}/>
                     <Route path="/performances" component={PerformancesPage}/>
                     <Route path="/performance/:id" component={ManagePerformancesPage}/>
-                    <Route path="/employees" component={Employees}/>
+                    <Route path="/employees" component={EmployeesPage}/>
+                    <Route path="/employee/:id" component={ManageEmployeesPage}/>
+                    <Route path="/employee" component={ManageEmployeesPage}/>
                     <Route path="/rehearsals" component={Rehearsals}/>
                     <Route path="/profile" component={Profile}/>
                     <Route path="/logout" component={Logout}/>

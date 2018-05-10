@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import CalendarList from "./CalendarList";
 
 const CalendarListRow = ({shift, onClick}) => {
     return (
@@ -14,7 +13,7 @@ const CalendarListRow = ({shift, onClick}) => {
             <td>{shift.location === undefined ? "" : shift.location.name}</td>
             <td>{shift.notes === undefined ? "" : shift.notes}</td>
             <td><Link to={'/shift/' + shift.id}>Upravit</Link></td>
-            <td><a href="#" onClick={() => onClick(shift, event)}> Smazat</a></td>
+            <td><a href="#" onClick={() => onClick(shift)}> Smazat</a></td>
         </tr>
     );
 };

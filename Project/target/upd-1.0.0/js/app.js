@@ -4,9 +4,11 @@ import configureStore from './store/configureStore';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import Layout from "./components/common/Layout";
+import {loadDailyCalendar} from "./actions/calendarActions";
 //np import "../node_modules/toastr/build/toastr.min.css";
 
 const store = configureStore();
+store.dispatch(loadDailyCalendar());
 
 render(
     <Provider store={store}>

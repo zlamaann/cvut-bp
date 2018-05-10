@@ -11,23 +11,20 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import upd.exception.NotFoundException;
 import upd.model.Address;
 import upd.model.Message;
 import upd.model.Person;
 import upd.model.PersonType;
+import upd.rest.exception.DataConflictException;
 import upd.rest.util.RestUtils;
 import upd.service.PersonService;
 import upd.service.PersonTypeService;
 
 @RestController
 
-@RequestMapping("/person")
+@RequestMapping("/persons")
 public class PersonController extends BaseController {
     
     @Autowired
@@ -51,6 +48,36 @@ public class PersonController extends BaseController {
         }
         u.erasePassword();
         return u;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void update(@PathVariable("id") Integer personId, @RequestBody Person person) {
+        if (!personId.equals(person.getId())) {
+            throw new DataConflictException(
+                    "Person id " + personId + " in the URL does not match the person id " + person.getId() +
+                            " in the data.");
+        }
+        if (!personService.exists(personId)) {
+            throw NotFoundException.create("Shift", personId);
+        }
+        personService.update(person);
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Person {} updated.", person);
+        }
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable("id") Integer personId) {
+        final Person person = personService.find(personId);
+        if (person == null) {
+            throw NotFoundException.create("Person", personId);
+        }
+        personService.remove(person);
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Person {} successfully removed.", person);
+        }
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{name}", produces = MediaType.APPLICATION_JSON_VALUE)

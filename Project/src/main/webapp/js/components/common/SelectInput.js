@@ -11,6 +11,7 @@ const SelectInput = ({name, label, onChange, defaultOption, value, error, option
                     name={name}
                     className=""
                     value={value}
+                    multiple={false}
                     onChange={onChange}>
                     <option value="">{defaultOption}</option>
                     {options.map(option => {

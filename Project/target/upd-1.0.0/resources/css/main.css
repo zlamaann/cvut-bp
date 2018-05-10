@@ -6,7 +6,7 @@ html {
         --red: #CB2F16;
         --black: #101414;
 		--red-dark: #A61C06;
-        font-size: 20px;
+
         color: var(--black);
         font-family: "Open Sans", sans-serif;
     }
@@ -103,10 +103,42 @@ input[type="text"], select {
 }
 @media only screen
 
-and (min-width : 1200px) {
+and (min-width : 1300px) {
     /* Desktops and laptops ----------- */
 
+	html {
+		font-size: 20px;
+	}
 
+}
+
+@media only screen
+and (max-width : 1300px) {
+/* Desktops and laptops ----------- */
+
+	html {
+		font-size: 17px;
+	}
+
+}
+
+@media only screen
+and (max-width : 1064px) {
+	/* Desktops and laptops ----------- */
+
+	html {
+		font-size: 14px;
+	}
+
+}
+
+@media only screen
+and (max-width : 930px) {
+	/* Desktops and laptops ----------- */
+
+	html {
+		font-size: 12px;
+	}
 
 }
 

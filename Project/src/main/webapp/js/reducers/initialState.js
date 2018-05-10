@@ -2,5 +2,6 @@ export default {
     performances: [],
     shiftTypes: [],
     shifts: [],
-    locations: []
+    locations: [],
+    employees: []
 }

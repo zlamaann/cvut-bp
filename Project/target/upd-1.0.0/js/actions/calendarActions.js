@@ -21,8 +21,8 @@ export function loadDailyCalendar() {
 
 export function deleteFromCalendar(shift) {
     return (dispatch) => {
-        return axios.delete('rest/shifts/'+ shift.id.toString()).then(response => {
-            dispatch(deleteFromCalendarSuccess(response.data));
+        return axios.delete('rest/shifts/' + shift.id.toString()).then(response => {
+            dispatch(deleteFromCalendarSuccess(shift));
         }).catch(error => {
             throw(error);
         })

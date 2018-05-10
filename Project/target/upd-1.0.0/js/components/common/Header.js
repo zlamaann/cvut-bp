@@ -30,13 +30,10 @@ export default class Header extends React.Component {
                                     <NavLink to="/messages" activeClassName="active">NÁSTĚNKA</NavLink>
                                 </li>
                                 <li>
-                                    <NavLink to="/performance" activeClassName="active">PŘEDSTAVENÍ</NavLink>
+                                    <NavLink to="/performances" activeClassName="active">PŘEDSTAVENÍ</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/employees" activeClassName="active">ZAMĚSTNANCI</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/rehearsals" activeClassName="active">ZKOUŠKY</NavLink>
                                 </li>
                             </ul>
                         </nav>

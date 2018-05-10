@@ -16,15 +16,14 @@ class CalendarPage extends React.Component {
     }
 
     componentWillMount() {
-        this.props.actions.loadDailyCalendar();
+        //this.props.actions.loadDailyCalendar();
     }
 
     redirectToAddShift() {
         this.context.router.history.push('/shift');
     }
 
-    deleteShift(shift, event) {
-        event.preventDefault();
+    deleteShift(shift) {
         this.props.actions.deleteFromCalendar(shift)
             .then(() => {
                 toastr.success('Událost smazána.');
