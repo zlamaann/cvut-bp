@@ -1,5 +1,6 @@
 package upd.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import sun.misc.Perf;
 
 import javax.persistence.*;
@@ -17,10 +18,12 @@ public class PerformancePerson {
 
     @ManyToOne
     @JoinColumn(name = "ID_PERSON")
+    //@JsonBackReference
     private Person person;
 
     @ManyToOne
     @JoinColumn(name = "ID_PERFORMANCE")
+    //@JsonBackReference
     private Performance performance;
 
     @Column(name = "ROLE_NAME")

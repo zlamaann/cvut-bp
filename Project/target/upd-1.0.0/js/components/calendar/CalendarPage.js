@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as calendarActions from '../../actions/calendarActions';
+import * as shiftActions from '../../actions/shiftActions';
 import { bindActionCreators } from 'redux';
 import CalendarList from './CalendarList';
 import toastr from 'toastr';
@@ -15,16 +15,12 @@ class CalendarPage extends React.Component {
         this.deleteShift = this.deleteShift.bind(this);
     }
 
-    componentWillMount() {
-        this.props.actions.loadDailyCalendar();
-    }
-
     redirectToAddShift() {
         this.context.router.history.push('/shift');
     }
 
     deleteShift(shift) {
-        this.props.actions.deleteFromCalendar(shift)
+        this.props.actions.deleteShift(shift)
             .then(() => {
                 toastr.success('Událost smazána.');
             });
@@ -32,7 +28,7 @@ class CalendarPage extends React.Component {
     }
 
     render() {
-        const {calendar} = this.props;
+        const {shifts} = this.props;
 
         return (
                 <div>
@@ -41,7 +37,7 @@ class CalendarPage extends React.Component {
                            className=""
                            onClick={this.redirectToAddShift}
                     />
-                    <CalendarList shifts={calendar} onClick={this.deleteShift}/>
+                    <CalendarList shifts={shifts} onClick={this.deleteShift}/>
                 </div>
         );
     }
@@ -49,7 +45,7 @@ class CalendarPage extends React.Component {
 }
 
 CalendarPage.propTypes = {
-    calendar: PropTypes.array.isRequired,
+    shifts: PropTypes.array.isRequired,
     actions: PropTypes.object.isRequired
 };
 
@@ -59,13 +55,13 @@ CalendarPage.contextTypes = {
 
 function mapStateToProps(state, ownProps) {
     return {
-      calendar: state.calendar
+      shifts: state.shifts
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(calendarActions, dispatch)
+        actions: bindActionCreators(shiftActions, dispatch)
     };
 }
 

@@ -9,7 +9,7 @@ const EmployeesListRow = ({employee, onClick}) => {
             <td>{employee.email === undefined ? "" : employee.email}</td>
             <td>{employee.phoneNumber === undefined ? "" : employee.phoneNumber}</td>
             <td><Link to={'/employee/' + employee.id}>Detaily</Link></td>
-            <td><a href="#" onClick={() => onClick(employee)}> Smazat</a></td>
+            <td><a href onClick={(e) => {e.preventDefault(); onClick(employee)}}>Smazat</a></td>
         </tr>
     );
 };

@@ -30,7 +30,7 @@ export function loadPerformances() {
 export function deletePerformance(performance) {
     return (dispatch) => {
         return axios.delete('rest/performances/' + performance.id).then(response => {
-            dispatch(deletePerformanceSuccess(performance));
+            dispatch(deletePerformanceSuccess(response.data));
         }).catch(error => {
             throw(error);
         })

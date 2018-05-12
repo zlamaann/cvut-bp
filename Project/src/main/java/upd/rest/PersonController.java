@@ -50,9 +50,20 @@ public class PersonController extends BaseController {
         return u;
     }
 
+    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Person create(@RequestBody Person person) {
+        personService.persist(person);
+        if (LOG.isTraceEnabled()) {
+            LOG.trace("User {} successfully registered.", person);
+        }
+        final HttpHeaders headers = RestUtils
+                .createLocationHeaderFromCurrentUri("/{email}", person);
+        return person;
+    }
+
+
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable("id") Integer personId, @RequestBody Person person) {
+    public Person update(@PathVariable("id") Integer personId, @RequestBody Person person) {
         if (!personId.equals(person.getId())) {
             throw new DataConflictException(
                     "Person id " + personId + " in the URL does not match the person id " + person.getId() +
@@ -65,11 +76,12 @@ public class PersonController extends BaseController {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Person {} updated.", person);
         }
+        person.erasePassword();
+        return person;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") Integer personId) {
+    public Person delete(@PathVariable("id") Integer personId) {
         final Person person = personService.find(personId);
         if (person == null) {
             throw NotFoundException.create("Person", personId);
@@ -78,6 +90,7 @@ public class PersonController extends BaseController {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Person {} successfully removed.", person);
         }
+        return person;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{name}", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -129,17 +142,6 @@ public class PersonController extends BaseController {
     public List<Message> getMessages() {
         List<Message> messages = personService.getMessages();
         return messages;
-    }
-
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> create(@RequestBody Person user) {
-        personService.persist(user);
-        if (LOG.isTraceEnabled()) {
-            LOG.trace("User {} successfully registered.", user);
-        }
-        final HttpHeaders headers = RestUtils
-                .createLocationHeaderFromCurrentUri("/{email}", user);
-        return new ResponseEntity<>(headers, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/{id}" ,consumes = MediaType.APPLICATION_JSON_VALUE)

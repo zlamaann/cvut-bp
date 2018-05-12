@@ -16,7 +16,7 @@ class EmployeesPage extends React.Component {
     }
 
     componentWillMount() {
-        this.props.actions.loadEmployees();
+       // this.props.actions.loadEmployees();
     }
 
     redirectToAddEmployee() {

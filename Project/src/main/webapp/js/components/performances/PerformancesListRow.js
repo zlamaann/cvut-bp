@@ -9,7 +9,7 @@ const PerformancesListRow = ({performance, onClick}) => {
             <td>{performance.length === undefined ? "" : performance.length}</td>
             <td>{performance.isRegular === undefined ? "" : (performance.isRegular ? "Ano" : "Ne")}</td>
             <td><Link to={'/performance/' + performance.id}>Detaily</Link></td>
-            <td><a href="#" onClick={() => onClick(performance)}> Smazat</a></td>
+            <td><a href onClick={(e) => {e.preventDefault(); onClick(performance)}}> Smazat</a></td>
         </tr>
     );
 };

@@ -1,5 +1,9 @@
 package upd.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
@@ -13,8 +17,8 @@ public class Message implements Serializable {
     @Column(name="ID_MESSAGE")
     private Integer id;
 
-    @Temporal(TemporalType.DATE)
     @Column(nullable = false, name = "DATE")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private Date date;
 
     @Column(nullable = true, name = "SUBJECT")
@@ -22,6 +26,10 @@ public class Message implements Serializable {
 
     @Column(nullable = false, name = "DESCRIPTION")
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "ID_PERSON")
+    private Person author;
 
     public Message() {
     }
@@ -67,5 +75,13 @@ public class Message implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Person getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Person author) {
+        this.author = author;
     }
 }

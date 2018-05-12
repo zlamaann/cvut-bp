@@ -42,6 +42,7 @@ export function saveShift(shift) {
         if (shift.id) {
             return axios.put('rest/shifts/' + shift.id, shift)
                 .then(response => {
+                    console.log("Response put: ", response);
                     dispatch(updateShiftSuccess(response.data))
                 }).catch(error => {
                     throw (error);
@@ -49,6 +50,7 @@ export function saveShift(shift) {
         } else {
             return axios.post('rest/shifts', shift)
                 .then(response => {
+                    console.log("Response post: ", response);
                     dispatch(createShiftSuccess(response.data));
                 }).catch(error => {
                     throw (error);

@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import toastr from "toastr";
 import { bindActionCreators } from "redux";
 import * as performancesActions from "../../actions/performancesActions";
+import { loadShifts } from "../../actions/shiftActions";
 import { connect } from "react-redux";
 import PerformancesList from "./PerformancesList";
 
@@ -16,7 +17,7 @@ class PerformancesPage extends React.Component {
     }
 
     componentWillMount() {
-        this.props.actions.loadPerformances();
+        //this.props.actions.loadPerformances();
     }
 
     redirectToAddPerformance() {
@@ -27,13 +28,12 @@ class PerformancesPage extends React.Component {
         this.props.actions.deletePerformance(performance)
             .then(() => {
                 toastr.success('Představení smazáno.');
+                this.props.loadShifts();
             });
 
     }
 
     render() {
-        const {performances} = this.props;
-
         return (
             <div>
                 <input type="submit"
@@ -41,7 +41,7 @@ class PerformancesPage extends React.Component {
                        className=""
                        onClick={this.redirectToAddPerformance}
                 />
-                <PerformancesList performances={performances} onClick={this.deletePerformance}/>
+                <PerformancesList performances={this.props.performances} onClick={this.deletePerformance}/>
             </div>
         );
     }
@@ -50,7 +50,8 @@ class PerformancesPage extends React.Component {
 
 PerformancesPage.propTypes = {
     performances: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
+    loadShifts: PropTypes.func.isRequired
 };
 
 PerformancesPage.contextTypes = {
@@ -65,7 +66,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(performancesActions, dispatch)
+        actions: bindActionCreators(performancesActions, dispatch),
+        loadShifts: bindActionCreators(loadShifts, dispatch)
     };
 }
 

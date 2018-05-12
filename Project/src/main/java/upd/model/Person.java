@@ -1,6 +1,8 @@
 package upd.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.eclipse.persistence.annotations.*;
 import org.eclipse.persistence.annotations.Convert;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -68,13 +70,6 @@ public class Person implements Serializable {
     @JoinColumn(name="ID_ADDRESS")
     private Address address;
 
-    @OneToMany
-    @JoinTable
-            (name="MESSAGE_PERSON",
-                    joinColumns=@JoinColumn(name="ID_PERSON"),
-                    inverseJoinColumns=@JoinColumn(name="ID_MESSAGE"))
-    private List<Message> messages = new ArrayList<>();
-
     @ManyToMany
     @JoinTable(name="SHIFT_PERSON",
                     joinColumns=@JoinColumn(name="ID_PERSON"),
@@ -82,6 +77,7 @@ public class Person implements Serializable {
     private List<Shift> shifts = new ArrayList<>();
 
     @OneToMany(mappedBy = "person")
+    //@JsonManagedReference
     @JsonIgnore
     private List<PerformancePerson> performances;
 
@@ -131,10 +127,6 @@ public class Person implements Serializable {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-
-    public void setMessages(List<Message> messages) {
-        this.messages = messages;
     }
 
     public void setShifts(List<Shift> shifts) {
@@ -192,18 +184,6 @@ public class Person implements Serializable {
 
     public Address getAddress() {
         return address;
-    }
-
-    public List<Message> getMessages() {
-        return messages;
-    }
-
-    public void addMesage(Message message) {
-        messages.add(message);
-    }
-
-    public void removeMessage(Message message) {
-        messages.remove(message);
     }
 
     public List<Shift> getShifts() {

@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import sun.misc.Perf;
 import upd.exception.NotFoundException;
 import upd.model.Performance;
 import upd.model.Person;
@@ -36,19 +37,18 @@ public class PerformanceController extends BaseController {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> create(@RequestBody Performance performance) {
+    public Performance create(@RequestBody Performance performance) {
         performanceService.persist(performance);
         if (LOG.isTraceEnabled()) {
             LOG.trace("Performance {} successfully created.", performance);
         }
         final HttpHeaders headers = RestUtils
                 .createLocationHeaderFromCurrentUri("/{name}", performance.getName());
-        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+        return performance;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable("id") Integer performanceId, @RequestBody Performance performance) {
+    public Performance update(@PathVariable("id") Integer performanceId, @RequestBody Performance performance) {
         if (!performanceId.equals(performance.getId())) {
             throw new DataConflictException(
                     "Performance id " + performanceId + " in the URL does not match the performance id " + performance.getId() +
@@ -61,11 +61,11 @@ public class PerformanceController extends BaseController {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Performance {} updated.", performance);
         }
+        return performance;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") Integer performanceId) {
+    public Performance delete(@PathVariable("id") Integer performanceId) {
         final Performance performance = performanceService.find(performanceId);
         if (performance == null) {
             throw NotFoundException.create("Person", performanceId);
@@ -74,6 +74,7 @@ public class PerformanceController extends BaseController {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Performance {} successfully removed.", performance);
         }
+        return performance;
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/{idPerf}", consumes = MediaType.APPLICATION_JSON_VALUE)

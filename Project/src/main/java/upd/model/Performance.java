@@ -1,6 +1,7 @@
 package upd.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -29,6 +30,7 @@ public class Performance implements Serializable {
 
     @OneToMany(mappedBy = "performance")
     @JsonIgnore
+    //@JsonManagedReference
     private List<PerformancePerson> roles;
 
     public Performance() {

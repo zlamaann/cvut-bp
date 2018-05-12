@@ -65,19 +65,19 @@ public class ShiftController extends BaseController {
     }
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> create(@RequestBody Shift shift) {
+    public Shift create(@RequestBody Shift shift) {
         shiftService.persist(shift);
         if (LOG.isTraceEnabled()) {
             LOG.debug("Shift {} successfully created.", shift);
         }
         final HttpHeaders headers = RestUtils
                 .createLocationHeaderFromCurrentUri("/{shift}", shift);
-        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+        //return new ResponseEntity<>(headers, HttpStatus.CREATED);
+        return shift;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void update(@PathVariable("id") Integer shiftId, @RequestBody Shift shift) {
+    public Shift update(@PathVariable("id") Integer shiftId, @RequestBody Shift shift) {
         if (!shiftId.equals(shift.getId())) {
             throw new DataConflictException(
                     "Shift id " + shiftId + " in the URL does not match the shift id " + shift.getId() +
@@ -90,11 +90,11 @@ public class ShiftController extends BaseController {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Shift {} updated.", shift);
         }
+        return shift;
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable("id") Integer shiftId) {
+    public Shift delete(@PathVariable("id") Integer shiftId) {
         final Shift shift = shiftService.find(shiftId);
         if (shift == null) {
             throw NotFoundException.create("Shift", shiftId);
@@ -103,6 +103,7 @@ public class ShiftController extends BaseController {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Shift {} successfully removed.", shift);
         }
+        return shift;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/types", produces = MediaType.APPLICATION_JSON_VALUE)

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as performancesActions from '../../actions/performancesActions';
+import { loadShifts } from "../../actions/shiftActions";
 import { bindActionCreators } from 'redux';
 import toastr from 'toastr';
 import PerformanceForm from "./PerformanceForm";
@@ -22,11 +23,6 @@ class ManagePerformancesPage extends React.Component {
         this.savePerformance = this.savePerformance.bind(this);
         this.redirect = this.redirect.bind(this);
         this.toggleEdit = this.toggleEdit.bind(this);
-    }
-
-    componentWillMount() {
-        this.props.actions.loadPerformances();
-
     }
 
     componentWillReceiveProps(nextProps) {
@@ -77,6 +73,8 @@ class ManagePerformancesPage extends React.Component {
             isEditing: false
         });
         toastr.success('Představení uloženo.');
+        this.props.loadShifts();
+        this.context.router.history.push('/performances');
     }
 
     render() {
@@ -110,6 +108,7 @@ class ManagePerformancesPage extends React.Component {
 ManagePerformancesPage.propTypes = {
     performance: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
+    loadShifts: PropTypes.func.isRequired
 };
 
 ManagePerformancesPage.contextTypes = {
@@ -147,7 +146,8 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(performancesActions, dispatch)
+        actions: bindActionCreators(performancesActions, dispatch),
+        loadShifts: bindActionCreators(loadShifts, dispatch)
     };
 }
 

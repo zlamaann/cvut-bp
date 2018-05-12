@@ -4,5 +4,6 @@ export default {
     shifts: [],
     locations: [],
     employees: [],
-    current: {}
+    current: {},
+    messages: []
 }

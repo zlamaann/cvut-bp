@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as shiftActions from '../../actions/shiftActions';
-import { loadPerformances } from '../../actions/performancesActions';
-import { loadShiftTypes } from '../../actions/shiftTypesActions';
-import { loadLocations } from '../../actions/locationActions';
 import { bindActionCreators } from 'redux';
 import ShiftForm from './ShiftForm';
 import toastr from 'toastr';
@@ -26,12 +23,13 @@ class ManageShiftPage extends React.Component {
     }
 
     componentWillMount() {
-        this.props.actions.loadShifts();
+        /*this.props.actions.loadShifts();
         this.props.loadLocations();
         this.props.loadShiftTypes();
-        this.props.loadPerformances();
+        this.props.loadPerformances();*/
 
     }
+
 
     componentWillReceiveProps(nextProps) {
         if (this.props.shift.id !== nextProps.shift.id) {
@@ -74,6 +72,7 @@ class ManageShiftPage extends React.Component {
         this.setState({saving: false});
         toastr.success('Událost uložena.');
         this.context.router.history.push('/');
+
     }
 
     render() {
@@ -99,10 +98,7 @@ ManageShiftPage.propTypes = {
     performances: PropTypes.array.isRequired,
     shiftTypes: PropTypes.array.isRequired,
     locations: PropTypes.array.isRequired,
-    actions: PropTypes.object.isRequired,
-    loadPerformances: PropTypes.func.isRequired,
-    loadShiftTypes: PropTypes.func.isRequired,
-    loadLocations: PropTypes.func.isRequired,
+    actions: PropTypes.object.isRequired
 };
 
 ManageShiftPage.contextTypes = {
@@ -167,10 +163,7 @@ function mapStateToProps(state, ownProps) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(shiftActions, dispatch),
-        loadPerformances: bindActionCreators(loadPerformances, dispatch),
-        loadShiftTypes: bindActionCreators(loadShiftTypes, dispatch),
-        loadLocations: bindActionCreators(loadLocations, dispatch)
+        actions: bindActionCreators(shiftActions, dispatch)
     };
 }
 
