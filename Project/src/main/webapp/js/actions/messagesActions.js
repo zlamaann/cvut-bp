@@ -38,7 +38,6 @@ export function deleteMessage(message) {
 }
 
 export function saveMessage(message) {
-    console.log("Message in saveMessage: ", message);
     return (dispatch, getState) => {
         if (message.id) {
             return axios.put('rest/messages/' + message.id, message)

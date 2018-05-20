@@ -8,7 +8,7 @@ const PerformancesList = ({performances, onClick}) => {
             <thead>
             <tr>
                 <th>Název představení</th>
-                <th>Délka</th>
+                <th>Délka (v min.)</th>
                 <th>Běžné představení</th>
                 <th>Popis</th>
                 <th></th>

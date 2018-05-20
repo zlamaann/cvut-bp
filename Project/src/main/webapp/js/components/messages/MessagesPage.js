@@ -127,10 +127,9 @@ function getMessageById(messages, id) {
 }
 
 function mapStateToProps(state, ownProps) {
-
     const messageId = ownProps.match.params.id; // path '/message/:id'
 
-    let message = {id: '', subject: '', description: '', date: '', author: ''};
+    let message = {id: '', subject: '', description: '', date: '', author: state.current};
 
     if (messageId && state.messages.length > 0) {
         let result = getMessageById(state.messages, messageId);

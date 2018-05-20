@@ -38,10 +38,10 @@ public class MessageController {
 
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Message create(@RequestBody Message message) {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        /*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String email = auth.getName();
         Person current = personService.getByEmail(email);
-        message.setAuthor(current);
+        message.setAuthor(current);*/
         messageService.persist(message);
         if (LOG.isTraceEnabled()) {
             LOG.trace("Message {} successfully created.", message);

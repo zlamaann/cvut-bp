@@ -34,6 +34,15 @@ public class Person implements Serializable {
             this.phoneNumber = phoneNumber;
         }
 
+    public Person(String name, String surname, String password, String email, Integer phoneNumber, Address address) {
+        this.name = name;
+        this.surname = surname;
+        this.password = password;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name="ID_PERSON")
