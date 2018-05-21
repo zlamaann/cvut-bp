@@ -27,14 +27,6 @@ class ProfilePage extends React.Component {
         this.toggleEdit = this.toggleEdit.bind(this);
     }
 
-    componentWillMount() {
-        this.props.actions.loadProfile();
-    }
-
-    componentDidUpdate() {
-        this.props.actions.loadProfile();
-    }
-
 
     componentWillReceiveProps(nextProps) {
         if (this.props.current.id !== nextProps.current.id) {

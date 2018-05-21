@@ -83,7 +83,7 @@ public class Person implements Serializable {
     @JoinTable(name="SHIFT_PERSON",
                     joinColumns=@JoinColumn(name="ID_PERSON"),
                     inverseJoinColumns=@JoinColumn(name="ID_SHIFT"))
-    private List<Shift> shifts = new ArrayList<>();
+    private List<Shift> shifts;
 
     @OneToMany(mappedBy = "person")
     //@JsonManagedReference

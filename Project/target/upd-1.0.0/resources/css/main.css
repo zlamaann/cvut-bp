@@ -73,7 +73,7 @@ input[type="submit"]:hover {
 	background-color: var(--red-dark);
 }
 
-input[type="text"], select {
+input[type="text"], input[type="password"], select {
     padding: 0.3em;
     border-radius: 2px;
     border: 0.5px solid grey;
@@ -112,11 +112,11 @@ input[type="text"], select {
     flex-direction: column;
 }
 
-.justify-content,.space-between {
+.space-between {
 	justify-content: space-between;
 }
 
-.justify-content,.flex-end {
+.flex-end {
 	justify-content: flex-end;
 }
 

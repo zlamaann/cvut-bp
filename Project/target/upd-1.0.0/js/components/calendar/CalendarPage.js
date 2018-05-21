@@ -22,7 +22,7 @@ class CalendarPage extends React.Component {
     deleteShift(shift) {
         this.props.actions.deleteShift(shift)
             .then(() => {
-                toastr.success('Událost smazána.');
+                toastr.success('Směna smazána.');
             });
 
     }
@@ -33,7 +33,7 @@ class CalendarPage extends React.Component {
         return (
                 <div>
                     <input type="submit"
-                           value="Přidat událost"
+                           value="Přidat směnu"
                            className=""
                            onClick={this.redirectToAddShift}
                     />

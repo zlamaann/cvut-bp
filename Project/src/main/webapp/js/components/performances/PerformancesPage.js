@@ -16,10 +16,6 @@ class PerformancesPage extends React.Component {
         this.deletePerformance = this.deletePerformance.bind(this);
     }
 
-    componentWillMount() {
-        //this.props.actions.loadPerformances();
-    }
-
     redirectToAddPerformance() {
         this.context.router.history.push('/performance');
     }

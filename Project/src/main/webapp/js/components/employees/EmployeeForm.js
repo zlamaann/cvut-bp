@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextInput from '../common/TextInput';
 import MultipleSelectInput from "../common/MultipleSelectInput";
+import PasswordInput from "../common/PasswordInput";
 
 const EmployeeForm = ({employee, roles, performances, onSave, onChange, saving, errors}) => {
     return (
@@ -24,6 +25,12 @@ const EmployeeForm = ({employee, roles, performances, onSave, onChange, saving, 
                 value={employee.email}
                 onChange={onChange}
                 error={errors.email}/>
+            <PasswordInput
+                name="password"
+                label="Heslo"
+                value={employee.password}
+                onChange={onChange}
+                error={errors.password}/>
             <TextInput
                 name="phoneNumber"
                 label="Telefonní číslo"
@@ -56,7 +63,7 @@ const EmployeeForm = ({employee, roles, performances, onSave, onChange, saving, 
                 onChange={onChange}
                 error={errors.phoneNumber}/>
 
-            <MultipleSelectInput
+            {/* <MultipleSelectInput
                 name="roles"
                 label="Uživatelské role"
                 value={employee.roles}
@@ -76,7 +83,7 @@ const EmployeeForm = ({employee, roles, performances, onSave, onChange, saving, 
                 options={performances}
                 error={errors.performances}
                 multiple={false}
-            />
+            />*/}
 
             <input
                 type="submit"

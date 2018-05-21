@@ -38,7 +38,12 @@ class ManageEmployeesPage extends React.Component {
     updateEmployeeState(event) {
         const field = event.target.name;
         let employee = Object.assign({}, this.state.employee);
-        employee[field] = event.target.value;
+        if (field === 'streetName' || field === 'streetNumber' || field === 'city' || field === 'postalCode' ) {
+            let address = employee['address'];
+            address[field] = event.target.value;
+        } else {
+            employee[field] = event.target.value;
+        }
         return this.setState({employee:employee});
     }
 
@@ -54,6 +59,7 @@ class ManageEmployeesPage extends React.Component {
             name: this.state.employee.name,
             surname: this.state.employee.surname,
             email: this.state.employee.email,
+            password: this.state.employee.password,
             phoneNumber: this.state.employee.phoneNumber,
             address: {
                 id: this.state.employee.address.id,
@@ -62,7 +68,7 @@ class ManageEmployeesPage extends React.Component {
                 city: this.state.employee.address.city,
                 postalCode: this.state.employee.address.postalCode
             },
-            roles: this.state.employee.roles,
+            roles: [],
             performances: []
         };
 
@@ -84,6 +90,7 @@ class ManageEmployeesPage extends React.Component {
             isEditing: false
         });
         toastr.success('Zaměstnanec uložen.');
+        this.context.router.history.push('/employees');
     }
 
     render() {
@@ -143,7 +150,7 @@ function getEmployeeById(employees, id) {
 function mapStateToProps(state, ownProps) {
     const employeeId = ownProps.match.params.id; // path '/employee/:id'
     let employee = {
-        id: '', name: '', surname: '', email: '', phoneNumber: '', address: { id: '', streetName: '', streetNumber: '',  city: '', postalCode: ''}, roles: [], performances: []
+        id: '', name: '', surname: '', password: '', email: '', phoneNumber: '', address: { id: '', streetName: '', streetNumber: '',  city: '', postalCode: ''}, roles: [], performances: []
     };
 
     if (employeeId && state.employees.length > 0) {
@@ -152,6 +159,7 @@ function mapStateToProps(state, ownProps) {
             id: result.id.toString(),
             name: result.name,
             surname: result.surname,
+            password: result.password,
             email: result.email,
             phoneNumber: result.phoneNumber.toString(),
             address: {
@@ -161,7 +169,7 @@ function mapStateToProps(state, ownProps) {
                 city: result.address.city,
                 postalCode: result.address.postalCode.toString()
             },
-            roles: result.roles,
+            roles: [],
             performances: []
         };
 
