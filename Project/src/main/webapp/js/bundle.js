@@ -846,7 +846,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CalendarPage);
 
-},{"../../actions/shiftActions":7,"./CalendarList":10,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":430,"toastr":434}],13:[function(require,module,exports){
+},{"../../actions/shiftActions":7,"./CalendarList":10,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":446,"toastr":450}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1978,7 +1978,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(EmployeesPage);
 
-},{"../../actions/employeesActions":2,"./EmployeesList":23,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":430,"toastr":434}],26:[function(require,module,exports){
+},{"../../actions/employeesActions":2,"./EmployeesList":23,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":446,"toastr":450}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2258,7 +2258,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ManageEmployeesPage);
 
-},{"../../actions/employeesActions":2,"./EmployeeForm":22,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":430,"toastr":434}],27:[function(require,module,exports){
+},{"../../actions/employeesActions":2,"./EmployeeForm":22,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":446,"toastr":450}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2733,7 +2733,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(MessagesPage);
 
-},{"../../actions/messagesActions":4,"../common/Layout":16,"./MessagesGrid":28,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":430,"toastr":434}],31:[function(require,module,exports){
+},{"../../actions/messagesActions":4,"../common/Layout":16,"./MessagesGrid":28,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":446,"toastr":450}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2976,7 +2976,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ManagePerformancesPage);
 
-},{"../../actions/performancesActions":5,"../../actions/shiftActions":7,"./PerformanceForm":32,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":430,"toastr":434}],32:[function(require,module,exports){
+},{"../../actions/performancesActions":5,"../../actions/shiftActions":7,"./PerformanceForm":32,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":446,"toastr":450}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3327,7 +3327,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(PerformancesPage);
 
-},{"../../actions/performancesActions":5,"../../actions/shiftActions":7,"./PerformancesList":33,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":430,"toastr":434}],36:[function(require,module,exports){
+},{"../../actions/performancesActions":5,"../../actions/shiftActions":7,"./PerformancesList":33,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":446,"toastr":450}],36:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3695,7 +3695,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ProfilePage);
 
-},{"../../actions/profileActions":6,"./ProfileForm":36,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":430,"toastr":434}],38:[function(require,module,exports){
+},{"../../actions/profileActions":6,"./ProfileForm":36,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":446,"toastr":450}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3934,7 +3934,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ManageShiftPage);
 
-},{"../../actions/shiftActions":7,"./ShiftForm":39,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":430,"toastr":434}],39:[function(require,module,exports){
+},{"../../actions/shiftActions":7,"./ShiftForm":39,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":446,"toastr":450}],39:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4285,6 +4285,10 @@ var _ShiftsList = require("./ShiftsList");
 
 var _ShiftsList2 = _interopRequireDefault(_ShiftsList);
 
+var _SelectInput = require("../common/SelectInput");
+
+var _SelectInput2 = _interopRequireDefault(_SelectInput);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -4298,11 +4302,13 @@ var ShiftsPage = function (_React$Component) {
         var _this = (0, _possibleConstructorReturn3.default)(this, (ShiftsPage.__proto__ || (0, _getPrototypeOf2.default)(ShiftsPage)).call(this, props, context));
 
         _this.state = {
-            employee: (0, _assign2.default)({}, props.current)
+            employee: (0, _assign2.default)({}, props.current),
+            errors: {}
         };
 
         _this.redirectToAddShift = _this.redirectToAddShift.bind(_this);
         _this.deleteShift = _this.deleteShift.bind(_this);
+        _this.updateShiftState = _this.updateShiftState.bind(_this);
         return _this;
     }
 
@@ -4319,22 +4325,40 @@ var ShiftsPage = function (_React$Component) {
             });
         }
     }, {
+        key: "updateShiftState",
+        value: function updateShiftState(event) {
+            var id = event.target.value;
+            var employee = this.props.employees.find(function (employee) {
+                return employee.id === Number(id);
+            });
+            return this.setState({ employee: employee });
+        }
+    }, {
         key: "render",
         value: function render() {
+            var employeesFormatted = this.props.employeesFormatted;
 
-            //const {shifts} = this.props;
             var current = this.state.employee;
+            var errors = this.state.errors;
 
             return _react2.default.createElement(
                 "div",
                 null,
                 _react2.default.createElement(
                     "div",
-                    { className: "flex row justify-content space-between" },
+                    { className: "flex row space-between" },
                     _react2.default.createElement(
                         "div",
                         null,
-                        _react2.default.createElement("input", null)
+                        _react2.default.createElement(_SelectInput2.default, {
+                            onChange: this.updateShiftState,
+                            label: "Vyberte zam\u011Bstnance",
+                            name: "employee",
+                            value: current.id.toString(),
+                            defaultOption: "Vyberte zam\u011Bstance",
+                            options: employeesFormatted,
+                            error: errors.current
+                        })
                     ),
                     _react2.default.createElement(
                         "div",
@@ -4347,7 +4371,7 @@ var ShiftsPage = function (_React$Component) {
                     )
                 ),
                 _react2.default.createElement(
-                    "h3",
+                    "h2",
                     null,
                     current.name + " " + current.surname
                 ),
@@ -4361,7 +4385,9 @@ var ShiftsPage = function (_React$Component) {
 ShiftsPage.propTypes = {
     shifts: _propTypes2.default.array.isRequired,
     actions: _propTypes2.default.object.isRequired,
-    current: _propTypes2.default.object.isRequired
+    current: _propTypes2.default.object.isRequired,
+    employees: _propTypes2.default.array.isRequired,
+    employeesFormatted: _propTypes2.default.array.isRequired
 };
 
 ShiftsPage.contextTypes = {
@@ -4369,10 +4395,19 @@ ShiftsPage.contextTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
-    console.log(state);
+
+    var employeesFormattedForDropdown = state.employees.map(function (employee) {
+        return {
+            value: employee.id.toString(),
+            text: employee.name + " " + employee.surname
+        };
+    });
+
     return {
         shifts: state.shifts,
-        current: state.current
+        current: state.current,
+        employees: state.employees,
+        employeesFormatted: employeesFormattedForDropdown
     };
 }
 
@@ -4384,7 +4419,7 @@ function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ShiftsPage);
 
-},{"../../actions/profileActions":6,"../../actions/shiftActions":7,"./ShiftsList":40,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":430,"toastr":434}],43:[function(require,module,exports){
+},{"../../actions/profileActions":6,"../../actions/shiftActions":7,"../common/SelectInput":20,"./ShiftsList":40,"babel-runtime/core-js/object/assign":79,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"prop-types":231,"react":425,"react-redux":369,"redux":446,"toastr":450}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4491,7 +4526,7 @@ var rootReducer = (0, _redux.combineReducers)({
 
 exports.default = rootReducer;
 
-},{"./employeeReducer":43,"./locationReducer":46,"./messageReducer":47,"./performanceReducer":48,"./profileReducer":49,"./shiftReducer":50,"./shiftTypesReducer":51,"redux":430}],45:[function(require,module,exports){
+},{"./employeeReducer":43,"./locationReducer":46,"./messageReducer":47,"./performanceReducer":48,"./profileReducer":49,"./shiftReducer":50,"./shiftTypesReducer":51,"redux":446}],45:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -4785,7 +4820,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 exports.default = configureStore;
 
@@ -4803,13 +4838,28 @@ var _reduxThunk = require('redux-thunk');
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
+var _reduxPersist = require('redux-persist');
+
+var _storage = require('redux-persist/lib/storage');
+
+var _storage2 = _interopRequireDefault(_storage);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var persistConfig = {
+    key: 'root',
+    storage: _storage2.default
+};
+
+var persistedReducer = (0, _reduxPersist.persistReducer)(persistConfig, _reducers2.default);
+
 function configureStore(initialState) {
-  return (0, _redux.createStore)(_reducers2.default, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default, (0, _reduxImmutableStateInvariant2.default)()));
+    var store = (0, _redux.createStore)(persistedReducer, initialState, (0, _redux.applyMiddleware)(_reduxThunk2.default, (0, _reduxImmutableStateInvariant2.default)()));
+    var persistor = (0, _reduxPersist.persistStore)(store);
+    return { store: store, persistor: persistor };
 }
 
-},{"../reducers":44,"redux":430,"redux-immutable-state-invariant":426,"redux-thunk":429}],53:[function(require,module,exports){
+},{"../reducers":44,"redux":446,"redux-immutable-state-invariant":426,"redux-persist":434,"redux-persist/lib/storage":444,"redux-thunk":445}],53:[function(require,module,exports){
 module.exports = require('./lib/axios');
 },{"./lib/axios":55}],54:[function(require,module,exports){
 (function (process){
@@ -10009,7 +10059,7 @@ var createLocation = exports.createLocation = function createLocation(path, stat
 var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a, b) {
   return a.pathname === b.pathname && a.search === b.search && a.hash === b.hash && a.key === b.key && (0, _valueEqual2.default)(a.state, b.state);
 };
-},{"./PathUtils":204,"resolve-pathname":431,"value-equal":435}],204:[function(require,module,exports){
+},{"./PathUtils":204,"resolve-pathname":447,"value-equal":451}],204:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -10379,7 +10429,7 @@ var createBrowserHistory = function createBrowserHistory() {
 };
 
 exports.default = createBrowserHistory;
-},{"./DOMUtils":202,"./LocationUtils":203,"./PathUtils":204,"./createTransitionManager":208,"invariant":211,"warning":436}],206:[function(require,module,exports){
+},{"./DOMUtils":202,"./LocationUtils":203,"./PathUtils":204,"./createTransitionManager":208,"invariant":211,"warning":452}],206:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -10704,7 +10754,7 @@ var createHashHistory = function createHashHistory() {
 };
 
 exports.default = createHashHistory;
-},{"./DOMUtils":202,"./LocationUtils":203,"./PathUtils":204,"./createTransitionManager":208,"invariant":211,"warning":436}],207:[function(require,module,exports){
+},{"./DOMUtils":202,"./LocationUtils":203,"./PathUtils":204,"./createTransitionManager":208,"invariant":211,"warning":452}],207:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -10875,7 +10925,7 @@ var createMemoryHistory = function createMemoryHistory() {
 };
 
 exports.default = createMemoryHistory;
-},{"./LocationUtils":203,"./PathUtils":204,"./createTransitionManager":208,"warning":436}],208:[function(require,module,exports){
+},{"./LocationUtils":203,"./PathUtils":204,"./createTransitionManager":208,"warning":452}],208:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -10961,7 +11011,7 @@ var createTransitionManager = function createTransitionManager() {
 };
 
 exports.default = createTransitionManager;
-},{"warning":436}],209:[function(require,module,exports){
+},{"warning":452}],209:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -38994,7 +39044,7 @@ function whenMapDispatchToPropsIsObject(mapDispatchToProps) {
 }
 
 exports.default = [whenMapDispatchToPropsIsFunction, whenMapDispatchToPropsIsMissing, whenMapDispatchToPropsIsObject];
-},{"./wrapMapToProps":368,"redux":430}],364:[function(require,module,exports){
+},{"./wrapMapToProps":368,"redux":446}],364:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -39670,7 +39720,7 @@ BrowserRouter.propTypes = {
   children: _propTypes2.default.node
 };
 exports.default = BrowserRouter;
-},{"./Router":384,"history/createBrowserHistory":205,"prop-types":231,"react":425,"warning":436}],377:[function(require,module,exports){
+},{"./Router":384,"history/createBrowserHistory":205,"prop-types":231,"react":425,"warning":452}],377:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -39739,7 +39789,7 @@ HashRouter.propTypes = {
   children: _propTypes2.default.node
 };
 exports.default = HashRouter;
-},{"./Router":384,"history/createHashHistory":206,"prop-types":231,"react":425,"warning":436}],378:[function(require,module,exports){
+},{"./Router":384,"history/createHashHistory":206,"prop-types":231,"react":425,"warning":452}],378:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -40188,7 +40238,7 @@ MemoryRouter.propTypes = {
   children: _propTypes2.default.node
 };
 exports.default = MemoryRouter;
-},{"./Router":394,"history/createMemoryHistory":207,"prop-types":231,"react":425,"warning":436}],391:[function(require,module,exports){
+},{"./Router":394,"history/createMemoryHistory":207,"prop-types":231,"react":425,"warning":452}],391:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -40388,7 +40438,7 @@ Redirect.contextTypes = {
   }).isRequired
 };
 exports.default = Redirect;
-},{"history":209,"invariant":211,"prop-types":231,"react":425,"warning":436}],393:[function(require,module,exports){
+},{"history":209,"invariant":211,"prop-types":231,"react":425,"warning":452}],393:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -40541,7 +40591,7 @@ Route.childContextTypes = {
   router: _propTypes2.default.object.isRequired
 };
 exports.default = Route;
-},{"./matchPath":397,"invariant":211,"prop-types":231,"react":425,"warning":436}],394:[function(require,module,exports){
+},{"./matchPath":397,"invariant":211,"prop-types":231,"react":425,"warning":452}],394:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -40661,7 +40711,7 @@ Router.childContextTypes = {
   router: _propTypes2.default.object.isRequired
 };
 exports.default = Router;
-},{"invariant":211,"prop-types":231,"react":425,"warning":436}],395:[function(require,module,exports){
+},{"invariant":211,"prop-types":231,"react":425,"warning":452}],395:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -40847,7 +40897,7 @@ StaticRouter.childContextTypes = {
   router: _propTypes2.default.object.isRequired
 };
 exports.default = StaticRouter;
-},{"./Router":394,"history/PathUtils":204,"invariant":211,"prop-types":231,"react":425,"warning":436}],396:[function(require,module,exports){
+},{"./Router":394,"history/PathUtils":204,"invariant":211,"prop-types":231,"react":425,"warning":452}],396:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -40944,7 +40994,7 @@ Switch.propTypes = {
   location: _propTypes2.default.object
 };
 exports.default = Switch;
-},{"./matchPath":397,"invariant":211,"prop-types":231,"react":425,"warning":436}],397:[function(require,module,exports){
+},{"./matchPath":397,"invariant":211,"prop-types":231,"react":425,"warning":452}],397:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -43868,6 +43918,931 @@ function _detectMutations(isImmutable) {
 'use strict';
 
 exports.__esModule = true;
+var KEY_PREFIX = exports.KEY_PREFIX = 'persist:';
+var FLUSH = exports.FLUSH = 'persist/FLUSH';
+var REHYDRATE = exports.REHYDRATE = 'persist/REHYDRATE';
+var PAUSE = exports.PAUSE = 'persist/PAUSE';
+var PERSIST = exports.PERSIST = 'persist/PERSIST';
+var PURGE = exports.PURGE = 'persist/PURGE';
+var REGISTER = exports.REGISTER = 'persist/REGISTER';
+var DEFAULT_VERSION = exports.DEFAULT_VERSION = -1;
+},{}],430:[function(require,module,exports){
+(function (process){
+'use strict';
+
+exports.__esModule = true;
+exports.default = createMigrate;
+
+var _constants = require('./constants');
+
+function createMigrate(migrations, config) {
+  var _ref = config || {},
+      debug = _ref.debug;
+
+  return function (state, currentVersion) {
+    if (!state) {
+      if (process.env.NODE_ENV !== 'production' && debug) console.log('redux-persist: no inbound state, skipping migration');
+      return Promise.resolve(undefined);
+    }
+
+    var inboundVersion = state._persist && state._persist.version !== undefined ? state._persist.version : _constants.DEFAULT_VERSION;
+    if (inboundVersion === currentVersion) {
+      if (process.env.NODE_ENV !== 'production' && debug) console.log('redux-persist: versions match, noop migration');
+      return Promise.resolve(state);
+    }
+    if (inboundVersion > currentVersion) {
+      if (process.env.NODE_ENV !== 'production') console.error('redux-persist: downgrading version is not supported');
+      return Promise.resolve(state);
+    }
+
+    var migrationKeys = Object.keys(migrations).map(function (ver) {
+      return parseInt(ver);
+    }).filter(function (key) {
+      return currentVersion >= key && key > inboundVersion;
+    }).sort(function (a, b) {
+      return a - b;
+    });
+
+    if (process.env.NODE_ENV !== 'production' && debug) console.log('redux-persist: migrationKeys', migrationKeys);
+    try {
+      var migratedState = migrationKeys.reduce(function (state, versionKey) {
+        if (process.env.NODE_ENV !== 'production' && debug) console.log('redux-persist: running migration for versionKey', versionKey);
+        return migrations[versionKey](state);
+      }, state);
+      return Promise.resolve(migratedState);
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  };
+}
+}).call(this,require('_process'))
+},{"./constants":429,"_process":177}],431:[function(require,module,exports){
+(function (process){
+'use strict';
+
+exports.__esModule = true;
+exports.default = createPersistoid;
+
+var _constants = require('./constants');
+
+// @TODO remove once flow < 0.63 support is no longer required.
+
+function createPersistoid(config) {
+  // defaults
+  var blacklist = config.blacklist || null;
+  var whitelist = config.whitelist || null;
+  var transforms = config.transforms || [];
+  var throttle = config.throttle || 0;
+  var storageKey = '' + (config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX) + config.key;
+  var storage = config.storage;
+  var serialize = config.serialize === false ? function (x) {
+    return x;
+  } : defaultSerialize;
+
+  // initialize stateful values
+  var lastState = {};
+  var stagedState = {};
+  var keysToProcess = [];
+  var timeIterator = null;
+  var writePromise = null;
+
+  var update = function update(state) {
+    // add any changed keys to the queue
+    Object.keys(state).forEach(function (key) {
+      var subState = state[key];
+      if (!passWhitelistBlacklist(key)) return; // is keyspace ignored? noop
+      if (lastState[key] === state[key]) return; // value unchanged? noop
+      if (keysToProcess.indexOf(key) !== -1) return; // is key already queued? noop
+      keysToProcess.push(key); // add key to queue
+    });
+
+    // start the time iterator if not running (read: throttle)
+    if (timeIterator === null) {
+      timeIterator = setInterval(processNextKey, throttle);
+    }
+
+    lastState = state;
+  };
+
+  function processNextKey() {
+    if (keysToProcess.length === 0) {
+      if (timeIterator) clearInterval(timeIterator);
+      timeIterator = null;
+      return;
+    }
+
+    var key = keysToProcess.shift();
+    var endState = transforms.reduce(function (subState, transformer) {
+      return transformer.in(subState, key, lastState);
+    }, lastState[key]);
+    if (typeof endState !== 'undefined') stagedWrite(key, endState);
+  }
+
+  function stagedWrite(key, endState) {
+    try {
+      stagedState[key] = serialize(endState);
+    } catch (err) {
+      console.error('redux-persist/createPersistoid: error serializing state', err);
+    }
+    if (keysToProcess.length === 0) {
+      // cleanup any removed keys just before write.
+      Object.keys(stagedState).forEach(function (key) {
+        if (lastState[key] === undefined) {
+          delete stagedState[key];
+        }
+      });
+
+      writePromise = storage.setItem(storageKey, serialize(stagedState)).catch(onWriteFail);
+    }
+  }
+
+  function passWhitelistBlacklist(key) {
+    if (whitelist && whitelist.indexOf(key) === -1 && key !== '_persist') return false;
+    if (blacklist && blacklist.indexOf(key) !== -1) return false;
+    return true;
+  }
+
+  function onWriteFail(err) {
+    // @TODO add fail handlers (typically storage full)
+    if (err && process.env.NODE_ENV !== 'production') {
+      console.error('Error storing data', err);
+    }
+  }
+
+  var flush = function flush() {
+    while (keysToProcess.length !== 0) {
+      processNextKey();
+    }
+    return writePromise || Promise.resolve();
+  };
+
+  // return `persistoid`
+  return {
+    update: update,
+    flush: flush
+  };
+}
+
+// @NOTE in the future this may be exposed via config
+
+
+function defaultSerialize(data) {
+  return JSON.stringify(data);
+}
+}).call(this,require('_process'))
+},{"./constants":429,"_process":177}],432:[function(require,module,exports){
+"use strict";
+
+exports.__esModule = true;
+exports.default = createTransform;
+function createTransform(
+// @NOTE inbound: transform state coming from redux on its way to being serialized and stored
+inbound,
+// @NOTE outbound: transform state coming from storage, on its way to be rehydrated into redux
+outbound) {
+  var config = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+  var whitelist = config.whitelist || null;
+  var blacklist = config.blacklist || null;
+
+  function whitelistBlacklistCheck(key) {
+    if (whitelist && whitelist.indexOf(key) === -1) return true;
+    if (blacklist && blacklist.indexOf(key) !== -1) return true;
+    return false;
+  }
+
+  return {
+    in: function _in(state, key, fullState) {
+      return !whitelistBlacklistCheck(key) && inbound ? inbound(state, key, fullState) : state;
+    },
+    out: function out(state, key, fullState) {
+      return !whitelistBlacklistCheck(key) && outbound ? outbound(state, key, fullState) : state;
+    }
+  };
+}
+},{}],433:[function(require,module,exports){
+(function (process){
+'use strict';
+
+exports.__esModule = true;
+exports.default = getStoredState;
+
+var _constants = require('./constants');
+
+function getStoredState(config) {
+  var transforms = config.transforms || [];
+  var storageKey = '' + (config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX) + config.key;
+  var storage = config.storage;
+  var debug = config.debug;
+  var deserialize = config.serialize === false ? function (x) {
+    return x;
+  } : defaultDeserialize;
+  return storage.getItem(storageKey).then(function (serialized) {
+    if (!serialized) return undefined;else {
+      try {
+        var state = {};
+        var rawState = deserialize(serialized);
+        Object.keys(rawState).forEach(function (key) {
+          state[key] = transforms.reduceRight(function (subState, transformer) {
+            return transformer.out(subState, key, rawState);
+          }, deserialize(rawState[key]));
+        });
+        return state;
+      } catch (err) {
+        if (process.env.NODE_ENV !== 'production' && debug) console.log('redux-persist/getStoredState: Error restoring data ' + serialized, err);
+        throw err;
+      }
+    }
+  });
+}
+
+function defaultDeserialize(serial) {
+  return JSON.parse(serial);
+}
+}).call(this,require('_process'))
+},{"./constants":429,"_process":177}],434:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+var _persistReducer = require('./persistReducer');
+
+Object.defineProperty(exports, 'persistReducer', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_persistReducer).default;
+  }
+});
+
+var _persistCombineReducers = require('./persistCombineReducers');
+
+Object.defineProperty(exports, 'persistCombineReducers', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_persistCombineReducers).default;
+  }
+});
+
+var _persistStore = require('./persistStore');
+
+Object.defineProperty(exports, 'persistStore', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_persistStore).default;
+  }
+});
+
+var _createMigrate = require('./createMigrate');
+
+Object.defineProperty(exports, 'createMigrate', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_createMigrate).default;
+  }
+});
+
+var _createTransform = require('./createTransform');
+
+Object.defineProperty(exports, 'createTransform', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_createTransform).default;
+  }
+});
+
+var _getStoredState = require('./getStoredState');
+
+Object.defineProperty(exports, 'getStoredState', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_getStoredState).default;
+  }
+});
+
+var _createPersistoid = require('./createPersistoid');
+
+Object.defineProperty(exports, 'createPersistoid', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_createPersistoid).default;
+  }
+});
+
+var _purgeStoredState = require('./purgeStoredState');
+
+Object.defineProperty(exports, 'purgeStoredState', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_purgeStoredState).default;
+  }
+});
+
+var _constants = require('./constants');
+
+Object.keys(_constants).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _constants[key];
+    }
+  });
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./constants":429,"./createMigrate":430,"./createPersistoid":431,"./createTransform":432,"./getStoredState":433,"./persistCombineReducers":436,"./persistReducer":437,"./persistStore":438,"./purgeStoredState":439}],435:[function(require,module,exports){
+(function (process){
+'use strict';
+
+exports.__esModule = true;
+exports.PersistGate = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// eslint-disable-line import/no-unresolved
+// eslint-disable-line import/no-unresolved
+var PersistGate = exports.PersistGate = function (_PureComponent) {
+  _inherits(PersistGate, _PureComponent);
+
+  function PersistGate() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, PersistGate);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = PersistGate.__proto__ || Object.getPrototypeOf(PersistGate)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      bootstrapped: false
+    }, _this.handlePersistorState = function () {
+      var persistor = _this.props.persistor;
+
+      var _persistor$getState = persistor.getState(),
+          bootstrapped = _persistor$getState.bootstrapped;
+
+      if (bootstrapped) {
+        if (_this.props.onBeforeLift) {
+          Promise.resolve(_this.props.onBeforeLift()).then(function () {
+            return _this.setState({ bootstrapped: true });
+          }).catch(function () {
+            return _this.setState({ bootstrapped: true });
+          });
+        } else {
+          _this.setState({ bootstrapped: true });
+        }
+        _this._unsubscribe && _this._unsubscribe();
+      }
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(PersistGate, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this._unsubscribe = this.props.persistor.subscribe(this.handlePersistorState);
+      this.handlePersistorState();
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      this._unsubscribe && this._unsubscribe();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      if (process.env.NODE_ENV !== 'production') {
+        if (typeof this.props.children === 'function' && this.props.loading) console.error('redux-persist: PersistGate expects either a function child or loading prop, but not both. The loading prop will be ignored.');
+      }
+      if (typeof this.props.children === 'function') {
+        return this.props.children(this.state.bootstrapped);
+      }
+
+      return this.state.bootstrapped ? this.props.children : this.props.loading;
+    }
+  }]);
+
+  return PersistGate;
+}(_react.PureComponent);
+
+PersistGate.defaultProps = {
+  loading: null
+};
+}).call(this,require('_process'))
+},{"_process":177,"react":425}],436:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+exports.default = persistCombineReducers;
+
+var _redux = require('redux');
+
+var _persistReducer = require('./persistReducer');
+
+var _persistReducer2 = _interopRequireDefault(_persistReducer);
+
+var _autoMergeLevel = require('./stateReconciler/autoMergeLevel2');
+
+var _autoMergeLevel2 = _interopRequireDefault(_autoMergeLevel);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// combineReducers + persistReducer with stateReconciler defaulted to autoMergeLevel2
+function persistCombineReducers(config, reducers) {
+  config.stateReconciler = config.stateReconciler === undefined ? _autoMergeLevel2.default : config.stateReconciler;
+  return (0, _persistReducer2.default)(config, (0, _redux.combineReducers)(reducers));
+}
+},{"./persistReducer":437,"./stateReconciler/autoMergeLevel2":441,"redux":446}],437:[function(require,module,exports){
+(function (process){
+'use strict';
+
+exports.__esModule = true;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = persistReducer;
+
+var _constants = require('./constants');
+
+var _autoMergeLevel = require('./stateReconciler/autoMergeLevel1');
+
+var _autoMergeLevel2 = _interopRequireDefault(_autoMergeLevel);
+
+var _createPersistoid = require('./createPersistoid');
+
+var _createPersistoid2 = _interopRequireDefault(_createPersistoid);
+
+var _getStoredState = require('./getStoredState');
+
+var _getStoredState2 = _interopRequireDefault(_getStoredState);
+
+var _purgeStoredState = require('./purgeStoredState');
+
+var _purgeStoredState2 = _interopRequireDefault(_purgeStoredState);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var DEFAULT_TIMEOUT = 5000;
+/*
+  @TODO add validation / handling for:
+  - persisting a reducer which has nested _persist
+  - handling actions that fire before reydrate is called
+*/
+function persistReducer(config, baseReducer) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (!config) throw new Error('config is required for persistReducer');
+    if (!config.key) throw new Error('key is required in persistor config');
+    if (!config.storage) throw new Error("redux-persist: config.storage is required. Try using one of the provided storage engines `import storageLocal from 'redux-persist/es/storage/local'");
+  }
+
+  var version = config.version !== undefined ? config.version : _constants.DEFAULT_VERSION;
+  var debug = config.debug || false;
+  var stateReconciler = config.stateReconciler === undefined ? _autoMergeLevel2.default : config.stateReconciler;
+  var getStoredState = config.getStoredState || _getStoredState2.default;
+  var timeout = config.timeout !== undefined ? config.timeout : DEFAULT_TIMEOUT;
+  var _persistoid = null;
+  var _purge = false;
+  var _paused = true;
+  var conditionalUpdate = function conditionalUpdate(state) {
+    // update the persistoid only if we are rehydrated and not paused
+    state._persist.rehydrated && _persistoid && !_paused && _persistoid.update(state);
+    return state;
+  };
+
+  return function (state, action) {
+    var _ref = state || {},
+        _persist = _ref._persist,
+        rest = _objectWithoutProperties(_ref, ['_persist']);
+
+    var restState = rest;
+
+    if (action.type === _constants.PERSIST) {
+      var _sealed = false;
+      var _rehydrate = function _rehydrate(payload, err) {
+        // dev warning if we are already sealed
+        if (process.env.NODE_ENV !== 'production' && _sealed) console.error('redux-persist: rehydrate for "' + config.key + '" called after timeout.', payload, err);
+
+        // only rehydrate if we are not already sealed
+        if (!_sealed) {
+          action.rehydrate(config.key, payload, err);
+          _sealed = true;
+        }
+      };
+      timeout && setTimeout(function () {
+        !_sealed && _rehydrate(undefined, new Error('redux-persist: persist timed out for persist key "' + config.key + '"'));
+      }, timeout);
+
+      // @NOTE PERSIST resumes if paused.
+      _paused = false;
+
+      // @NOTE only ever create persistoid once, ensure we call it at least once, even if _persist has already been set
+      if (!_persistoid) _persistoid = (0, _createPersistoid2.default)(config);
+
+      // @NOTE PERSIST can be called multiple times, noop after the first
+      if (_persist) return state;
+      if (typeof action.rehydrate !== 'function' || typeof action.register !== 'function') throw new Error('redux-persist: either rehydrate or register is not a function on the PERSIST action. This can happen if the action is being replayed. This is an unexplored use case, please open an issue and we will figure out a resolution.');
+
+      action.register(config.key);
+
+      getStoredState(config).then(function (restoredState) {
+        var migrate = config.migrate || function (s, v) {
+          return Promise.resolve(s);
+        };
+        migrate(restoredState, version).then(function (migratedState) {
+          _rehydrate(migratedState);
+        }, function (migrateErr) {
+          if (process.env.NODE_ENV !== 'production' && migrateErr) console.error('redux-persist: migration error', migrateErr);
+          _rehydrate(undefined, migrateErr);
+        });
+      }, function (err) {
+        _rehydrate(undefined, err);
+      });
+
+      return _extends({}, baseReducer(restState, action), {
+        _persist: { version: version, rehydrated: false }
+      });
+    } else if (action.type === _constants.PURGE) {
+      _purge = true;
+      action.result((0, _purgeStoredState2.default)(config));
+      return _extends({}, baseReducer(restState, action), {
+        _persist: _persist
+      });
+    } else if (action.type === _constants.FLUSH) {
+      action.result(_persistoid && _persistoid.flush());
+      return _extends({}, baseReducer(restState, action), {
+        _persist: _persist
+      });
+    } else if (action.type === _constants.PAUSE) {
+      _paused = true;
+    } else if (action.type === _constants.REHYDRATE) {
+      // noop on restState if purging
+      if (_purge) return _extends({}, restState, {
+        _persist: _extends({}, _persist, { rehydrated: true })
+
+        // @NOTE if key does not match, will continue to default else below
+      });if (action.key === config.key) {
+        var reducedState = baseReducer(restState, action);
+        var inboundState = action.payload;
+        // only reconcile state if stateReconciler and inboundState are both defined
+        var reconciledRest = stateReconciler !== false && inboundState !== undefined ? stateReconciler(inboundState, state, reducedState, config) : reducedState;
+
+        var _newState = _extends({}, reconciledRest, {
+          _persist: _extends({}, _persist, { rehydrated: true })
+        });
+        return conditionalUpdate(_newState);
+      }
+    }
+
+    // if we have not already handled PERSIST, straight passthrough
+    if (!_persist) return baseReducer(state, action);
+
+    // run base reducer:
+    // is state modified ? return original : return updated
+    var newState = baseReducer(restState, action);
+    if (newState === restState) return state;else {
+      newState._persist = _persist;
+      return conditionalUpdate(newState);
+    }
+  };
+}
+}).call(this,require('_process'))
+},{"./constants":429,"./createPersistoid":431,"./getStoredState":433,"./purgeStoredState":439,"./stateReconciler/autoMergeLevel1":440,"_process":177}],438:[function(require,module,exports){
+(function (process){
+'use strict';
+
+exports.__esModule = true;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = persistStore;
+
+var _redux = require('redux');
+
+var _persistReducer = require('./persistReducer');
+
+var _persistReducer2 = _interopRequireDefault(_persistReducer);
+
+var _constants = require('./constants');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var initialState = {
+  registry: [],
+  bootstrapped: false
+};
+
+var persistorReducer = function persistorReducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments[1];
+
+  switch (action.type) {
+    case _constants.REGISTER:
+      return _extends({}, state, { registry: [].concat(_toConsumableArray(state.registry), [action.key]) });
+    case _constants.REHYDRATE:
+      var firstIndex = state.registry.indexOf(action.key);
+      var registry = [].concat(_toConsumableArray(state.registry));
+      registry.splice(firstIndex, 1);
+      return _extends({}, state, { registry: registry, bootstrapped: registry.length === 0 });
+    default:
+      return state;
+  }
+};
+
+function persistStore(store, options, cb) {
+  // help catch incorrect usage of passing PersistConfig in as PersistorOptions
+  if (process.env.NODE_ENV !== 'production') {
+    var optionsToTest = options || {};
+    var bannedKeys = ['blacklist', 'whitelist', 'transforms', 'storage', 'keyPrefix', 'migrate'];
+    bannedKeys.forEach(function (k) {
+      if (!!optionsToTest[k]) console.error('redux-persist: invalid option passed to persistStore: "' + k + '". You may be incorrectly passing persistConfig into persistStore, whereas it should be passed into persistReducer.');
+    });
+  }
+  var boostrappedCb = cb || false;
+
+  var _pStore = (0, _redux.createStore)(persistorReducer, initialState, options ? options.enhancer : undefined);
+  var register = function register(key) {
+    _pStore.dispatch({
+      type: _constants.REGISTER,
+      key: key
+    });
+  };
+
+  var rehydrate = function rehydrate(key, payload, err) {
+    var rehydrateAction = {
+      type: _constants.REHYDRATE,
+      payload: payload,
+      err: err,
+      key: key
+      // dispatch to `store` to rehydrate and `persistor` to track result
+    };store.dispatch(rehydrateAction);
+    _pStore.dispatch(rehydrateAction);
+    if (boostrappedCb && persistor.getState().bootstrapped) {
+      boostrappedCb();
+      boostrappedCb = false;
+    }
+  };
+
+  var persistor = _extends({}, _pStore, {
+    purge: function purge() {
+      var results = [];
+      store.dispatch({
+        type: _constants.PURGE,
+        result: function result(purgeResult) {
+          results.push(purgeResult);
+        }
+      });
+      return Promise.all(results);
+    },
+    flush: function flush() {
+      var results = [];
+      store.dispatch({
+        type: _constants.FLUSH,
+        result: function result(flushResult) {
+          results.push(flushResult);
+        }
+      });
+      return Promise.all(results);
+    },
+    pause: function pause() {
+      store.dispatch({
+        type: _constants.PAUSE
+      });
+    },
+    persist: function persist() {
+      store.dispatch({ type: _constants.PERSIST, register: register, rehydrate: rehydrate });
+    }
+  });
+
+  persistor.persist();
+
+  return persistor;
+}
+}).call(this,require('_process'))
+},{"./constants":429,"./persistReducer":437,"_process":177,"redux":446}],439:[function(require,module,exports){
+(function (process){
+'use strict';
+
+exports.__esModule = true;
+exports.default = purgeStoredState;
+
+var _constants = require('./constants');
+
+function purgeStoredState(config) {
+  var storage = config.storage;
+  var storageKey = '' + (config.keyPrefix !== undefined ? config.keyPrefix : _constants.KEY_PREFIX) + config.key;
+  return storage.removeItem(storageKey, warnIfRemoveError);
+}
+
+function warnIfRemoveError(err) {
+  if (err && process.env.NODE_ENV !== 'production') {
+    console.error('redux-persist/purgeStoredState: Error purging data stored state', err);
+  }
+}
+}).call(this,require('_process'))
+},{"./constants":429,"_process":177}],440:[function(require,module,exports){
+(function (process){
+'use strict';
+
+exports.__esModule = true;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = autoMergeLevel1;
+function autoMergeLevel1(inboundState, originalState, reducedState, _ref) {
+  var debug = _ref.debug;
+
+  var newState = _extends({}, reducedState);
+  // only rehydrate if inboundState exists and is an object
+  if (inboundState && (typeof inboundState === 'undefined' ? 'undefined' : _typeof(inboundState)) === 'object') {
+    Object.keys(inboundState).forEach(function (key) {
+      // ignore _persist data
+      if (key === '_persist') return;
+      // if reducer modifies substate, skip auto rehydration
+      if (originalState[key] !== reducedState[key]) {
+        if (process.env.NODE_ENV !== 'production' && debug) console.log('redux-persist/stateReconciler: sub state for key `%s` modified, skipping.', key);
+        return;
+      }
+      // otherwise hard set the new value
+      newState[key] = inboundState[key];
+    });
+  }
+
+  if (process.env.NODE_ENV !== 'production' && debug && inboundState && (typeof inboundState === 'undefined' ? 'undefined' : _typeof(inboundState)) === 'object') console.log('redux-persist/stateReconciler: rehydrated keys \'' + Object.keys(inboundState).join(', ') + '\'');
+
+  return newState;
+}
+
+/*
+  autoMergeLevel1: 
+    - merges 1 level of substate
+    - skips substate if already modified
+*/
+}).call(this,require('_process'))
+},{"_process":177}],441:[function(require,module,exports){
+(function (process){
+'use strict';
+
+exports.__esModule = true;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+exports.default = autoMergeLevel2;
+function autoMergeLevel2(inboundState, originalState, reducedState, _ref) {
+  var debug = _ref.debug;
+
+  var newState = _extends({}, reducedState);
+  // only rehydrate if inboundState exists and is an object
+  if (inboundState && (typeof inboundState === 'undefined' ? 'undefined' : _typeof(inboundState)) === 'object') {
+    Object.keys(inboundState).forEach(function (key) {
+      // ignore _persist data
+      if (key === '_persist') return;
+      // if reducer modifies substate, skip auto rehydration
+      if (originalState[key] !== reducedState[key]) {
+        if (process.env.NODE_ENV !== 'production' && debug) console.log('redux-persist/stateReconciler: sub state for key `%s` modified, skipping.', key);
+        return;
+      }
+      if (isPlainEnoughObject(reducedState[key])) {
+        // if object is plain enough shallow merge the new values (hence "Level2")
+        newState[key] = _extends({}, newState[key], inboundState[key]);
+        return;
+      }
+      // otherwise hard set
+      newState[key] = inboundState[key];
+    });
+  }
+
+  if (process.env.NODE_ENV !== 'production' && debug && inboundState && (typeof inboundState === 'undefined' ? 'undefined' : _typeof(inboundState)) === 'object') console.log('redux-persist/stateReconciler: rehydrated keys \'' + Object.keys(inboundState).join(', ') + '\'');
+
+  return newState;
+}
+
+/*
+  autoMergeLevel2: 
+    - merges 2 level of substate
+    - skips substate if already modified
+    - this is essentially redux-perist v4 behavior
+*/
+
+function isPlainEnoughObject(o) {
+  return o !== null && !Array.isArray(o) && (typeof o === 'undefined' ? 'undefined' : _typeof(o)) === 'object';
+}
+}).call(this,require('_process'))
+},{"_process":177}],442:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+exports.default = createWebStorage;
+
+var _getStorage = require('./getStorage');
+
+var _getStorage2 = _interopRequireDefault(_getStorage);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function createWebStorage(type) {
+  var storage = (0, _getStorage2.default)(type);
+  return {
+    getItem: function getItem(key) {
+      return new Promise(function (resolve, reject) {
+        resolve(storage.getItem(key));
+      });
+    },
+    setItem: function setItem(key, item) {
+      return new Promise(function (resolve, reject) {
+        resolve(storage.setItem(key, item));
+      });
+    },
+    removeItem: function removeItem(key) {
+      return new Promise(function (resolve, reject) {
+        resolve(storage.removeItem(key));
+      });
+    }
+  };
+}
+},{"./getStorage":443}],443:[function(require,module,exports){
+(function (process){
+'use strict';
+
+exports.__esModule = true;
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.default = getStorage;
+
+
+function noop() {}
+
+var noopStorage = {
+  getItem: noop,
+  setItem: noop,
+  removeItem: noop
+};
+
+function hasStorage(storageType) {
+  if ((typeof self === 'undefined' ? 'undefined' : _typeof(self)) !== 'object' || !(storageType in self)) {
+    return false;
+  }
+
+  try {
+    var storage = self[storageType];
+    var testKey = 'redux-persist ' + storageType + ' test';
+    storage.setItem(testKey, 'test');
+    storage.getItem(testKey);
+    storage.removeItem(testKey);
+  } catch (e) {
+    if (process.env.NODE_ENV !== 'production') console.warn('redux-persist ' + storageType + ' test failed, persistence will be disabled.');
+    return false;
+  }
+  return true;
+}
+
+function getStorage(type) {
+  var storageType = type + 'Storage';
+  if (hasStorage(storageType)) return self[storageType];else {
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('redux-persist failed to create sync storage. falling back to memory storage.');
+    }
+    return noopStorage;
+  }
+}
+}).call(this,require('_process'))
+},{"_process":177}],444:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
+
+var _createWebStorage = require('./createWebStorage');
+
+var _createWebStorage2 = _interopRequireDefault(_createWebStorage);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _createWebStorage2.default)('local');
+},{"./createWebStorage":442}],445:[function(require,module,exports){
+'use strict';
+
+exports.__esModule = true;
 function createThunkMiddleware(extraArgument) {
   return function (_ref) {
     var dispatch = _ref.dispatch,
@@ -43888,7 +44863,7 @@ var thunk = createThunkMiddleware();
 thunk.withExtraArgument = createThunkMiddleware;
 
 exports['default'] = thunk;
-},{}],430:[function(require,module,exports){
+},{}],446:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -44491,7 +45466,7 @@ exports.compose = compose;
 exports.__DO_NOT_USE__ActionTypes = ActionTypes;
 
 }).call(this,require('_process'))
-},{"_process":177,"symbol-observable":432}],431:[function(require,module,exports){
+},{"_process":177,"symbol-observable":448}],447:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -44566,7 +45541,7 @@ function resolvePathname(to) {
 
 exports.default = resolvePathname;
 module.exports = exports['default'];
-},{}],432:[function(require,module,exports){
+},{}],448:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -44598,7 +45573,7 @@ if (typeof self !== 'undefined') {
 var result = (0, _ponyfill2['default'])(root);
 exports['default'] = result;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./ponyfill.js":433}],433:[function(require,module,exports){
+},{"./ponyfill.js":449}],449:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -44622,7 +45597,7 @@ function symbolObservablePonyfill(root) {
 
 	return result;
 };
-},{}],434:[function(require,module,exports){
+},{}],450:[function(require,module,exports){
 /*
  * Toastr
  * Copyright 2012-2015
@@ -45100,7 +46075,7 @@ function symbolObservablePonyfill(root) {
     }
 }));
 
-},{"jquery":214}],435:[function(require,module,exports){
+},{"jquery":214}],451:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -45144,7 +46119,7 @@ function valueEqual(a, b) {
 
 exports.default = valueEqual;
 module.exports = exports['default'];
-},{}],436:[function(require,module,exports){
+},{}],452:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -45208,7 +46183,7 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = warning;
 
 }).call(this,require('_process'))
-},{"_process":177}],437:[function(require,module,exports){
+},{"_process":177}],453:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -45220,6 +46195,8 @@ var _reactRouterDom = require('react-router-dom');
 var _configureStore = require('./store/configureStore');
 
 var _configureStore2 = _interopRequireDefault(_configureStore);
+
+var _react3 = require('redux-persist/integration/react');
 
 var _reactDom = require('react-dom');
 
@@ -45245,25 +46222,29 @@ var _shiftTypesActions = require('./actions/shiftTypesActions');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-//np import "../node_modules/toastr/build/toastr.min.css";
+// import "../node_modules/toastr/build/toastr.min.css";
 
 var store = (0, _configureStore2.default)();
-store.dispatch((0, _performancesActions.loadPerformances)());
-store.dispatch((0, _profileActions.loadProfile)());
-store.dispatch((0, _shiftActions.loadShifts)());
-store.dispatch((0, _shiftTypesActions.loadShiftTypes)());
-store.dispatch((0, _messagesActions.loadMessages)());
-store.dispatch((0, _employeesActions.loadEmployees)());
-store.dispatch((0, _locationActions.loadLocations)());
+store.store.dispatch((0, _performancesActions.loadPerformances)());
+store.store.dispatch((0, _profileActions.loadProfile)());
+store.store.dispatch((0, _shiftActions.loadShifts)());
+store.store.dispatch((0, _shiftTypesActions.loadShiftTypes)());
+store.store.dispatch((0, _messagesActions.loadMessages)());
+store.store.dispatch((0, _employeesActions.loadEmployees)());
+store.store.dispatch((0, _locationActions.loadLocations)());
 
 (0, _reactDom.render)(_react2.default.createElement(
     _reactRedux.Provider,
-    { store: store },
+    { store: store.store },
     _react2.default.createElement(
-        _reactRouterDom.HashRouter,
-        null,
-        _react2.default.createElement(_Layout2.default, null)
+        _react3.PersistGate,
+        { loading: null, persistor: store.persistor },
+        _react2.default.createElement(
+            _reactRouterDom.HashRouter,
+            null,
+            _react2.default.createElement(_Layout2.default, null)
+        )
     )
 ), document.getElementById('root'));
 
-},{"./actions/employeesActions":2,"./actions/locationActions":3,"./actions/messagesActions":4,"./actions/performancesActions":5,"./actions/profileActions":6,"./actions/shiftActions":7,"./actions/shiftTypesActions":8,"./components/common/Layout":16,"./store/configureStore":52,"react":425,"react-dom":233,"react-redux":369,"react-router-dom":387}]},{},[437]);
+},{"./actions/employeesActions":2,"./actions/locationActions":3,"./actions/messagesActions":4,"./actions/performancesActions":5,"./actions/profileActions":6,"./actions/shiftActions":7,"./actions/shiftTypesActions":8,"./components/common/Layout":16,"./store/configureStore":52,"react":425,"react-dom":233,"react-redux":369,"react-router-dom":387,"redux-persist/integration/react":435}]},{},[453]);
