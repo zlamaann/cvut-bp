@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route, Switch} from "react-router-dom";
+import {Route, Switch, Redirect} from "react-router-dom";
 import CalendarPage from "../calendar/CalendarPage";
 import ShiftsPage from "../shifts/ShiftsPage";
 import MessagesPage from "../messages/MessagesPage";
@@ -30,6 +30,7 @@ export default class Main extends React.Component {
                     <Route path="/employee" component={ManageEmployeesPage}/>
                     <Route path="/profile" component={ProfilePage}/>
                     <Route path="/logout" component={Logout}/>
+                    <Redirect from="/true" exact to="/" />
 
                 </Switch>
         );

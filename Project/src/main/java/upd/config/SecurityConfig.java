@@ -66,12 +66,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .authenticationProvider(authenticationProvider)
             .addFilterAfter(new CsrfHeaderFilter(), CsrfFilter.class)
             .csrf().disable()
-            .formLogin().permitAll().defaultSuccessUrl("/")
-            .loginProcessingUrl(SecurityConstants.SECURITY_CHECK_URI)
+            .formLogin().permitAll()
+            .loginProcessingUrl(SecurityConstants.SECURITY_CHECK_URI).defaultSuccessUrl("/", true)
             .usernameParameter(SecurityConstants.USERNAME_PARAM).passwordParameter(SecurityConstants.PASSWORD_PARAM)
             .and()
             .logout().invalidateHttpSession(true).deleteCookies(COOKIES_TO_DESTROY)
-            .logoutUrl(SecurityConstants.LOGOUT_URI).logoutSuccessHandler(logoutSuccessHandler)
+            .logoutUrl(SecurityConstants.LOGOUT_URI).logoutSuccessUrl("/login")
             .and().sessionManagement().maximumSessions(1);
     }
 }

@@ -36,6 +36,7 @@ public class AuthenticationSuccess implements AuthenticationSuccessHandler, Logo
         }
         final LoginStatus loginStatus = new LoginStatus(true, authentication.isAuthenticated(), username, null);
         mapper.writeValue(httpServletResponse.getOutputStream(), loginStatus);
+        //httpServletResponse.sendRedirect("/");
     }
 
     private String getUsername(Authentication authentication) {
@@ -52,6 +53,7 @@ public class AuthenticationSuccess implements AuthenticationSuccessHandler, Logo
             LOG.trace("Successfully logged out user {}", getUsername(authentication));
         }
         final LoginStatus loginStatus = new LoginStatus(false, true, null, null);
-        mapper.writeValue(httpServletResponse.getOutputStream(), loginStatus);
+       mapper.writeValue(httpServletResponse.getOutputStream(), loginStatus);
+        //httpServletResponse.sendRedirect("/login");
     }
 }

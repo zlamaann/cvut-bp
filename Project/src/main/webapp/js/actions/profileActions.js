@@ -30,3 +30,13 @@ export function saveProfile(current) {
 
     };
 }
+
+export  function logout() {
+    return () => {
+        return axios.get('j_spring_security_logout').then(response => {
+            console.log(response)
+        }).catch(error => {
+            throw (error);
+        })
+    }
+}

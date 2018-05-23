@@ -1,8 +1,20 @@
 
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
+import {logout} from "../../actions/profileActions";
+import {connect} from "react-redux";
 
-export default class Header extends React.Component {
+class Header extends React.Component {
+
+    constructor(props, context) {
+        super(props, context);
+
+        this.onLogout = this.onLogout.bind(this);
+    }
+
+    onLogout = () => {
+        this.props.logout()
+    };
 
     render () {
         return (
@@ -14,7 +26,7 @@ export default class Header extends React.Component {
                                 <li>
                                     <NavLink to="/profile">PROFIL</NavLink></li>
                                 <li>
-                                    <NavLink to="/logout">ODHLÁSIT SE</NavLink></li>
+                                    <a href onClick={this.onLogout}>ODHLÁSIT SE</a></li>
                             </ul>
 
                         </nav>
@@ -43,3 +55,5 @@ export default class Header extends React.Component {
         );
     }
 }
+
+export default connect(null, { logout })(Header);

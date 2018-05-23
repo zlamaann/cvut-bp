@@ -319,6 +319,7 @@ exports.updateProfileSuccess = updateProfileSuccess;
 exports.loadProfileSuccess = loadProfileSuccess;
 exports.loadProfile = loadProfile;
 exports.saveProfile = saveProfile;
+exports.logout = logout;
 
 var _actionTypes = require('./actionTypes');
 
@@ -354,6 +355,16 @@ function saveProfile(current) {
     return function (dispatch, getState) {
         return _axios2.default.put('rest/persons/' + current.id, current).then(function (response) {
             dispatch(updateProfileSuccess(response.data));
+        }).catch(function (error) {
+            throw error;
+        });
+    };
+}
+
+function logout() {
+    return function () {
+        return _axios2.default.post('j_spring_security_logout').then(function (response) {
+            console.log(response);
         }).catch(function (error) {
             throw error;
         });
@@ -1008,14 +1019,26 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = require('react-router-dom');
 
+var _profileActions = require('../../actions/profileActions');
+
+var _reactRedux = require('react-redux');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Header = function (_React$Component) {
     (0, _inherits3.default)(Header, _React$Component);
 
-    function Header() {
+    function Header(props, context) {
         (0, _classCallCheck3.default)(this, Header);
-        return (0, _possibleConstructorReturn3.default)(this, (Header.__proto__ || (0, _getPrototypeOf2.default)(Header)).apply(this, arguments));
+
+        var _this = (0, _possibleConstructorReturn3.default)(this, (Header.__proto__ || (0, _getPrototypeOf2.default)(Header)).call(this, props, context));
+
+        _this.onLogout = function () {
+            _this.props.logout();
+        };
+
+        _this.onLogout = _this.onLogout.bind(_this);
+        return _this;
     }
 
     (0, _createClass3.default)(Header, [{
@@ -1047,8 +1070,8 @@ var Header = function (_React$Component) {
                                 'li',
                                 null,
                                 _react2.default.createElement(
-                                    _reactRouterDom.NavLink,
-                                    { to: '/logout' },
+                                    'a',
+                                    { href: true, onClick: this.onLogout },
                                     'ODHL\xC1SIT SE'
                                 )
                             )
@@ -1114,9 +1137,9 @@ var Header = function (_React$Component) {
     return Header;
 }(_react2.default.Component);
 
-exports.default = Header;
+exports.default = (0, _reactRedux.connect)(null, { logout: _profileActions.logout })(Header);
 
-},{"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"react":425,"react-router-dom":387}],16:[function(require,module,exports){
+},{"../../actions/profileActions":6,"babel-runtime/core-js/object/get-prototype-of":82,"babel-runtime/helpers/classCallCheck":86,"babel-runtime/helpers/createClass":87,"babel-runtime/helpers/inherits":88,"babel-runtime/helpers/possibleConstructorReturn":89,"react":425,"react-redux":369,"react-router-dom":387}],16:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
